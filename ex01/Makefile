@@ -1,4 +1,4 @@
-NAME	= phonebook
+NAME	= PhoneBook
 
 CC		= c++ -g
 
@@ -6,13 +6,25 @@ CFLAGS	= -Wall -Wextra -Werror
 
 STD_LIB	= -std=c++98
 
-SRC	= phonebook.cpp
+SRC		= Contact.cpp PhoneBook.cpp main.cpp
 
 OBJS	= $(SRC:.cpp=.o)
 
-%.o = %.cpp
+%.o: %.cpp
 	$(CC) $(CFLAGS) $(STD_LIB) $< -c -o $@
 
 
 all: $(NAME)
 
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(STD_LIB) $(OBJS) -o $@ 
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
