@@ -3,12 +3,20 @@
 
 class Contact
 {
-	public:
 
-	char contacts[8]
+private:
+	std::string Name;
+	std::string	NickName;
+	std::string	DarkSecret;
+//	int			PhoneNumber;	
+		
+	public:
 	
-	Contacts( void );
-	~Contacts( void );	
-}
+	void setName(std::string name);
+	std::string getName();
+
+	Contact( void );
+	~Contact( void );
+};
 
 #endif

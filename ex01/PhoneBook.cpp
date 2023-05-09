@@ -1,4 +1,3 @@
-#include <iostream>
 #include "ClassPhoneBook.hpp"
 
 PhoneBook::PhoneBook( void )
@@ -7,14 +6,8 @@ PhoneBook::PhoneBook( void )
 	return;
 }
 
-PhoneBook::~PhoneBook( void )
-{
-	std::cout << "Hello Destructor" << std::endl;
-	return;
+PhoneBook::~PhoneBook( void ){
 }
 
-void	PhoneBook::bar( void )
-{
-	std::cout << "My function member called" << std::endl;
-	return;
+void	PhoneBook::bar( void ){
 }

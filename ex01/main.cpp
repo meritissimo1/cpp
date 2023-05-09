@@ -1,4 +1,5 @@
 #include "ClassPhoneBook.hpp"
+#include "ClassContact.hpp"
 
 void	menu( void )
 {
@@ -10,11 +11,21 @@ void	menu( void )
 	std::cout << "EXIT" << "Close the program" << std::endl;
 }
 
+void	add( void )
+{
+	std::string	Name;
+	Contact		contact;	
+
+	std::cout << "Insert your name: ";	
+	std::cin >> Name;
+	contact.setName(Name);	
+	std::cout << contact.getName() << std::endl;
+} 
 
 void	input_user(char *buffer)
 {
 	if (!strcmp(buffer, "ADD"))
-		std::cout << "ADD" << std::endl;
+		add();
 	else if (!strcmp(buffer, "SEARCH"))
 		std::cout << "SEARCH" << std::endl;
 }
@@ -31,7 +42,6 @@ int	main(int argc, char **argv)
 	{
 		menu();
 		std::cin >> buffer;
-		input_user(buffer);
 		if (!strcmp(buffer, "EXIT"))
 		{
 			char	decision;
@@ -43,6 +53,7 @@ int	main(int argc, char **argv)
 				return (0);
 			}
 		}
+		input_user(buffer);
 	}	 
 	return (0);
 }

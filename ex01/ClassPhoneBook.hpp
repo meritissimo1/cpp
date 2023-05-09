@@ -4,13 +4,13 @@
 # include <iostream>
 # include <string.h>
 # include <iomanip>
+# include "ClassContact.hpp"
 
-class PhoneBook {
+class PhoneBook {	
 
 public:
 	
-	char	contacts[8];	
-	int i;
+	Contact contacts[8];
 	PhoneBook( void );
 	~PhoneBook( void );
 
