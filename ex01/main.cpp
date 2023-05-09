@@ -11,16 +11,27 @@ void	menu( void )
 }
 
 
-int	main()
+void	input_user(char *buffer)
+{
+	if (!strcmp(buffer, "ADD"))
+		std::cout << "ADD" << std::endl;
+	else if (!strcmp(buffer, "SEARCH"))
+		std::cout << "SEARCH" << std::endl;
+}
+
+int	main(int argc, char **argv)
 {
 	PhoneBook	instance;
 	
 	char	buffer[42];
-
+	(void)argv;
+	if (argc > 1)
+		return (0);
 	while (1)
 	{
 		menu();
 		std::cin >> buffer;
+		input_user(buffer);
 		if (!strcmp(buffer, "EXIT"))
 		{
 			char	decision;
