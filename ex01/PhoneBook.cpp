@@ -2,12 +2,15 @@
 
 PhoneBook::PhoneBook( void )
 {
-	std::cout << "Hello Constructor" << std::endl;
-	return;
+
 }
 
-PhoneBook::~PhoneBook( void ){
+PhoneBook::~PhoneBook( void )
+{
+
 }
 
-void	PhoneBook::bar( void ){
+void	PhoneBook::bar( void )
+{
+
 }

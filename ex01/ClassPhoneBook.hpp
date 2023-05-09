@@ -17,4 +17,7 @@ public:
 	void bar( void );
 };
 
+void	menu( void );
+void	input_user(char *buffer);
+
 #endif
