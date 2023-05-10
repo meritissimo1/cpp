@@ -11,15 +11,15 @@ int	main(int argc, char **argv)
 	while (1)
 	{
 		menu();
-		std::getline (std::cin, buffer);
+		std::getline(std::cin, buffer);
 		if (buffer == "EXIT")
 		{
-			char	decision;
+			std::string	decision;
 			std::cout << "All the contacts will lost, are you sure about that? [Y/N]";
-			std::cin >> decision;
-			if (decision == 'y' || decision == 'Y')
+			std::getline(std::cin, decision);
+			if (decision[0] == 'y' || decision[0] == 'Y')
 			{
-				std::cout << "B" << decision << "e" << std::endl;
+				std::cout << "B" << decision[0] << "e" << std::endl;
 				return (0);
 			}
 		}
