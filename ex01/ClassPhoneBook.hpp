@@ -18,6 +18,6 @@ public:
 };
 
 void	menu( void );
-void	input_user(char *buffer);
+void	input_user(std::string buffer);
 
 #endif

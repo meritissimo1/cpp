@@ -1,4 +1,5 @@
 #include "ClassPhoneBook.hpp"
+#include <string>
 
 void	menu( void )
 {
@@ -15,17 +16,18 @@ void	add( void )
 	std::string	Name;
 	Contact		contact;	
 
-	std::cout << "Insert your name: ";	
-	std::cin >> Name;
-	// std::getline(std::cin, Name);
-	contact.setName(Name);	
-	std::cout << contact.getName() << std::endl;
+	std::cout << "Name: ";	
+	std::getline (std::cin, Name);
+	std::cout << Name << std::endl;
+//	std::cin >> Name;
+//	std::cout << contact.getName() << std::endl;
+//	contact.setName(Name);
 }
 
-void	input_user(char *buffer)
+void	input_user(std::string buffer)
 {
-	if (!strcmp(buffer, "ADD"))
+	if (buffer == "ADD")
 		add();
-	else if (!strcmp(buffer, "SEARCH"))
+	else if (buffer == "SEARCH")
 		std::cout << "SEARCH" << std::endl;
 }
