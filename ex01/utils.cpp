@@ -11,17 +11,31 @@ void	menu( void )
 	std::cout << "EXIT" << "Close the program" << std::endl;
 }
 
+void	name(Contact contact)
+{
+	std::string name;
+
+	std::cout << "Insert your name: ";
+	std::getline(std::cin, name);
+	contact.setName(name);		
+}
+
+void	nickname(Contact contact)
+{
+	std::string	nickname;
+
+	std::cout << "Insert your nick: ";
+	std::getline(std::cin, nickname);
+	contact.setNickName(nickname);	
+}
+
 void	add( void )
 {
-	std::string	Name;
 	Contact		contact;	
 
-	std::cout << "Name: ";	
-	std::getline (std::cin, Name);
-	std::cout << Name << std::endl;
-//	std::cin >> Name;
-//	std::cout << contact.getName() << std::endl;
-//	contact.setName(Name);
+	name(contact);
+	nickname(contact);
+
 }
 
 void	input_user(std::string buffer)

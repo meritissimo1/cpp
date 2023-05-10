@@ -15,6 +15,10 @@ private:
 	void setName(std::string name);
 	std::string getName();
 
+	void setNickName(std::string nickname);
+	std::string getNickName();
+	
+
 	Contact( void );
 	~Contact( void );
 };
