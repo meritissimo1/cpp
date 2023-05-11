@@ -8,7 +8,7 @@ private:
 	std::string Name;
 	std::string	NickName;
 	std::string	DarkSecret;
-//	int			PhoneNumber;	
+	std::string	PhoneNumber;	
 		
 	public:
 	
@@ -18,6 +18,8 @@ private:
 	void setNickName(std::string nickname);
 	std::string getNickName();
 	
+	void setNumber(std::string phonenumber);
+	std::string	getNumber();
 
 	Contact( void );
 	~Contact( void );

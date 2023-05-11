@@ -25,3 +25,13 @@ std::string	Contact::getNickName()
 {
 	return (this->NickName);
 }
+
+void	Contact::setNumber(std::string phonenumber)
+{
+	this->PhoneNumber = phonenumber;
+}
+
+std::string	Contact::getNumber()
+{
+	return (this->PhoneNumber);
+}
