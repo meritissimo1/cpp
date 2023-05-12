@@ -19,7 +19,7 @@ void	Name(Contact& contact)
 	contact.setName(name);
 }
 
-void	NickName(Contact contact)
+void	NickName(Contact& contact)
 {
 	std::string	nickname;
 
@@ -28,7 +28,7 @@ void	NickName(Contact contact)
 	contact.setNickName(nickname);
 }
 
-void	PhoneNumber(Contact contact)
+void	PhoneNumber(Contact& contact)
 {
 	std::string	phonenumber;
 
@@ -37,7 +37,7 @@ void	PhoneNumber(Contact contact)
 	contact.setNumber(phonenumber);
 }
 
-void	DarkSecret(Contact contact)
+void	DarkSecret(Contact& contact)
 {
 	std::string	darksecret;
 
@@ -55,12 +55,12 @@ void	add(PhoneBook *list)
 	i = list->NumberOfContacts;
 	std::cout << i << std::endl;
 	Name(list->contacts[i]);
-//	NickName(contact);
-//	PhoneNumber(contact);
-//	DarkSecret(contact);
+	NickName(list->contacts[i]);
+	PhoneNumber(list->contacts[i]);
+	DarkSecret(list->contacts[i]);
+	std::cout << list->contacts[0].getNickName() << std::endl;
 	list->NumberOfContacts++;
-	std::cout << list->contacts[0].getName() << std::endl;
-	std::cout << list->contacts[1].getName() << std::endl;
+
 }
 
 void	input_user(std::string buffer, PhoneBook *list)
@@ -69,4 +69,5 @@ void	input_user(std::string buffer, PhoneBook *list)
 		add(list);
 	else if (buffer == "SEARCH")
 		std::cout << "SEARCH" << std::endl;
+	
 }
