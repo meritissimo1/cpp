@@ -11,13 +11,13 @@ class PhoneBook {
 public:
 	
 	Contact contacts[8];
+	int		NumberOfContacts;
 	PhoneBook( void );
 	~PhoneBook( void );
 
-	void bar( void );
 };
 
 void	menu( void );
-void	input_user(std::string buffer);
+void	input_user(std::string buffer, PhoneBook *list);
 
 #endif

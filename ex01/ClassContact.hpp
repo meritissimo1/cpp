@@ -1,6 +1,8 @@
 #ifndef CLASS_CONTACT_H
 # define CLASS_CONTACT_H
 
+# include "ClassPhoneBook.hpp"
+
 class Contact
 {
 
@@ -20,6 +22,9 @@ private:
 	
 	void setNumber(std::string phonenumber);
 	std::string	getNumber();
+	
+	void setDarkSecret(std::string darksecret);
+	std::string	getDarkSecret();
 
 	Contact( void );
 	~Contact( void );

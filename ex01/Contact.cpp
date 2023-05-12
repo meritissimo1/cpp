@@ -35,3 +35,13 @@ std::string	Contact::getNumber()
 {
 	return (this->PhoneNumber);
 }
+
+void	Contact::setDarkSecret(std::string darksecret)
+{
+	this->DarkSecret = darksecret;
+}
+
+std::string	Contact::getDarkSecret()
+{
+	return (this->DarkSecret);
+}

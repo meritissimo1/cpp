@@ -2,15 +2,11 @@
 
 PhoneBook::PhoneBook( void )
 {
-
+	this->NumberOfContacts = 0;
+	return;
 }
 
 PhoneBook::~PhoneBook( void )
 {
-
-}
-
-void	PhoneBook::bar( void )
-{
-
+	return;
 }

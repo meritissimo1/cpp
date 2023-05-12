@@ -1,5 +1,4 @@
 #include "ClassPhoneBook.hpp"
-#include <string>
 
 void	menu( void )
 {
@@ -11,13 +10,13 @@ void	menu( void )
 	std::cout << "EXIT" << "Close the program" << std::endl;
 }
 
-void	Name(Contact contact)
+void	Name(Contact& contact)
 {
 	std::string name;
 
 	std::cout << "Insert your name: ";
 	std::getline(std::cin, name);
-	contact.setName(name);		
+	contact.setName(name);
 }
 
 void	NickName(Contact contact)
@@ -36,22 +35,38 @@ void	PhoneNumber(Contact contact)
 	std::cout << "Insert your PhoneNumber: ";
 	std::getline(std::cin, phonenumber);
 	contact.setNumber(phonenumber);
-	std::cout << contact.getNumber() << std::endl;	
 }
 
-void	add( void )
+void	DarkSecret(Contact contact)
 {
-	Contact		contact;	
+	std::string	darksecret;
 
-	Name(contact);
-	NickName(contact);
-	PhoneNumber(contact);
+	std::cout << "Insert your Dark Secret: ";
+	std::getline(std::cin, darksecret);
+	contact.setDarkSecret(darksecret);	
 }
 
-void	input_user(std::string buffer)
+void	add(PhoneBook *list)
+{
+	int			i;
+
+	if (list->NumberOfContacts == 8)
+		list->NumberOfContacts = 0;
+	i = list->NumberOfContacts;
+	std::cout << i << std::endl;
+	Name(list->contacts[i]);
+//	NickName(contact);
+//	PhoneNumber(contact);
+//	DarkSecret(contact);
+	list->NumberOfContacts++;
+	std::cout << list->contacts[0].getName() << std::endl;
+	std::cout << list->contacts[1].getName() << std::endl;
+}
+
+void	input_user(std::string buffer, PhoneBook *list)
 {
 	if (buffer == "ADD")
-		add();
+		add(list);
 	else if (buffer == "SEARCH")
 		std::cout << "SEARCH" << std::endl;
 }
