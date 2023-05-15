@@ -6,7 +6,7 @@ CFLAGS	= -Wall -Wextra -Werror
 
 STD_LIB	= -std=c++98
 
-SRC		=  utils.cpp Contact.cpp PhoneBook.cpp main.cpp
+SRC		=  Utils.cpp Contact.cpp PhoneBook.cpp main.cpp ContactInfo.cpp Menu.cpp
 
 OBJS	= $(SRC:.cpp=.o)
 
