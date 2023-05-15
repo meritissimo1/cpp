@@ -1,6 +1,6 @@
 #include "ClassPhoneBook.hpp"
 
-void	add(PhoneBook *list)
+void	Add(PhoneBook *list)
 {
 	int			i;
 
@@ -14,3 +14,17 @@ void	add(PhoneBook *list)
 	list->NumberOfContacts++;
 }
 
+void	Search(std::string	buffer, PhoneBook *list)
+{
+	std::string	ContactId;
+	int			i;
+
+	(void)buffer;
+	std::cout << "Insert the index: ";
+	std::getline(std::cin, ContactId);
+	i = std::stoi(ContactId);
+	if (i >= 0 && i <= 7)
+		std::cout << list->contacts[0].getName() << std::endl; 		
+	else
+		std::cout << "errado" << std::endl;	
+}

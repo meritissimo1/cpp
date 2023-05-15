@@ -13,8 +13,8 @@ void	menu( void )
 void	input_user(std::string buffer, PhoneBook *list)
 {
 	if (buffer == "ADD")
-		add(list);
+		Add(list);
 	else if (buffer == "SEARCH")
-		std::cout << "SEARCH" << std::endl;
-	
+		Search(buffer, list);
+	std::cout << list->contacts[0].getNickName() << std::endl;
 }
