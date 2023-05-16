@@ -14,7 +14,7 @@ int	main(int argc, char **argv)
 		std::getline(std::cin, buffer);
 		if (buffer == "EXIT")
 		{
-					std::string	decision;
+			std::string	decision;
 			std::cout << "All the contacts will lost, are you sure about that? [y/n]";
 			std::getline(std::cin, decision);
 			if (decision[0] == 'y' || decision[0] == 'Y')

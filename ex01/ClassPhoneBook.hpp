@@ -1,11 +1,14 @@
 #ifndef PHONE_BOOK_H
 # define PHONE_BOOK_H
 
+# include <stdio.h>
 # include <iostream>
 # include <string>
 # include <stdlib.h>
 # include <iomanip>
 # include "ClassContact.hpp"
+# include <sstream>
+# include <ctype.h>
 
 class PhoneBook {	
 

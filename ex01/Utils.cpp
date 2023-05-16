@@ -16,5 +16,4 @@ void	input_user(std::string buffer, PhoneBook *list)
 		Add(list);
 	else if (buffer == "SEARCH")
 		Search(buffer, list);
-	std::cout << list->contacts[0].getNickName() << std::endl;
 }

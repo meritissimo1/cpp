@@ -16,15 +16,25 @@ void	Add(PhoneBook *list)
 
 void	Search(std::string	buffer, PhoneBook *list)
 {
-	std::string	ContactId;
+	std::string	id;
+	const char *aux;
 	int			i;
-
+	
 	(void)buffer;
 	std::cout << "Insert the index: ";
-	std::getline(std::cin, ContactId);
-	i = std::stoi(ContactId);
-	if (i >= 0 && i <= 7)
-		std::cout << list->contacts[0].getName() << std::endl; 		
-	else
-		std::cout << "errado" << std::endl;	
+	std::getline(std::cin, id);
+	aux = id.c_str();
+	if (isdigit(aux[0]))
+	{	
+		i = std::atoi(aux);
+		if (i >= 0 && i <= 7)
+		{
+			std::cout << list->contacts[i].getName() << std::endl; 		
+			std::cout << list->contacts[i].getNickName() << std::endl;
+			std::cout << list->contacts[i].getNumber()	<< std::endl;
+			std::cout << list->contacts[i].getDarkSecret() << std::endl;
+		}
+		else
+			std::cout << "errado" << std::endl;
+	}
 }
