@@ -25,7 +25,7 @@ void	ContactsSaved(PhoneBook *list)
 	while (list->contacts[i].getName() != "")
 	{
 		con = list->contacts[i];
-		std::cout << "|" << i << "|" << con.getName() << "|" << con.getLastName() << std::endl;
+		std::cout << "|" << i + 1 << "|" << con.getName() << "|" << con.getLastName() << std::endl;
 		i++;
 	}	
 }
@@ -44,8 +44,9 @@ void	Search(std::string	buffer, PhoneBook *list)
 	if (isdigit(aux[0]))
 	{	
 		i = std::atoi(aux);
-		if (i >= 0 && i <= 7)
+		if (i >= 1 && i <= 8)
 		{
+			i -= 1;
 			std::cout << list->contacts[i].getName() << std::endl; 		
 			std::cout << list->contacts[i].getNickName() << std::endl;
 			std::cout << list->contacts[i].getNumber()	<< std::endl;
