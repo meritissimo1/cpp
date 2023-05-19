@@ -8,6 +8,7 @@ class Contact
 
 private:
 	std::string Name;
+	std::string	LastName;
 	std::string	NickName;
 	std::string	DarkSecret;
 	std::string	PhoneNumber;	
@@ -16,6 +17,9 @@ private:
 	
 	void setName(std::string name);
 	std::string getName();
+
+	void setLastName(std::string name);
+	std::string getLastName();
 
 	void setNickName(std::string nickname);
 	std::string getNickName();

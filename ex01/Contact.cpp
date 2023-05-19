@@ -16,6 +16,16 @@ std::string	Contact::getName()
 	return(this->Name);
 }
 
+void	Contact::setLastName(std::string lastname)
+{
+	this->LastName = lastname;
+}
+
+std::string	Contact::getLastName()
+{
+	return(this->LastName);
+}
+
 void	Contact::setNickName(std::string nickname)
 {
 	this->NickName = nickname;

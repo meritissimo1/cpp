@@ -37,3 +37,11 @@ void	DarkSecret(Contact& contact)
 	contact.setDarkSecret(darksecret);	
 }
 
+void	LastName(Contact& contact)
+{
+	std::string	lastname;
+
+	std::cout << "Insert your Last Name: ";
+	std::getline(std::cin, lastname);
+	contact.setLastName(lastname);
+}
