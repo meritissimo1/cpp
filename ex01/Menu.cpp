@@ -21,11 +21,13 @@ void	ContactsSaved(PhoneBook *list)
 	int		i;
 
 	i = 0;
-	std::cout << "|	Index|	First Name|	LastName|" << std::endl;
+	std::cout << "|	" << std::left << std::setfill(' ') << std::setw(5) << "Index" << "|" << std::left << std::setfill(' ') << std::setw(5) 
+	<< "First Name" << "|" << std::left << std::setfill(' ') << std::setw(5) <<  "LastName" << "|" << std::left << std::setfill(' ') << std::setw(5) << "NickName |" << std::endl;
 	while (list->contacts[i].getName() != "")
 	{
 		con = list->contacts[i];
-		std::cout << "|" << i + 1 << "|" << con.getName() << "|" << con.getLastName() << std::endl;
+		std::cout << "|	" << std::left << std::setfill(' ') << std::setw(5) << i + 1 << std::left << std::setfill(' ') << std::setw(con.getName().length()) << 
+		"|" << con.getName() << "|" << con.getLastName() << "|" << con.getNickName() << std::endl;
 		i++;
 	}	
 }
