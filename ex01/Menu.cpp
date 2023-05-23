@@ -21,13 +21,35 @@ void	ContactsSaved(PhoneBook *list)
 	int		i;
 
 	i = 0;
-	std::cout << "|	" << std::left << std::setfill(' ') << std::setw(5) << "Index" << "|" << std::left << std::setfill(' ') << std::setw(5) 
-	<< "First Name" << "|" << std::left << std::setfill(' ') << std::setw(5) <<  "LastName" << "|" << std::left << std::setfill(' ') << std::setw(5) << "NickName |" << std::endl;
+	std::cout << "|";
+	std::cout << std::right << std::setfill(' ') << std::setw(10); 
+	std::cout << "Index"; 
+	std::cout << "|";
+	std::cout << std::right << std::setfill(' ') << std::setw(10); 
+	std::cout << "FirstName";
+	std::cout << "|";
+	std::cout << std::right << std::setfill(' ') << std::setw(10);
+	std::cout << "LastName";
+	std::cout << "|";
+	std::cout << std::right << std::setfill(' ') << std::setw(10);
+	std::cout << "NickName";
+	std::cout << "|" << std::endl;
 	while (list->contacts[i].getName() != "")
 	{
 		con = list->contacts[i];
-		std::cout << "|	" << std::left << std::setfill(' ') << std::setw(5) << i + 1 << std::left << std::setfill(' ') << std::setw(con.getName().length()) << 
-		"|" << con.getName() << "|" << con.getLastName() << "|" << con.getNickName() << std::endl;
+		std::cout << "|";
+		std::cout << std::right << std::setfill(' ') << std::setw(10); 
+		std::cout << i + 1;
+		std::cout << "|"; 
+		std::cout << std::right << std::setfill(' ') << std::setw(10);
+		std::cout << con.getName();
+		std::cout << "|";
+		std::cout << std::right << std::setfill(' ') << std::setw(10);
+		std::cout << con.getLastName();
+		std::cout << "|";
+		std::cout << std::right << std::setfill(' ') << std::setw(10);
+		std::cout << con.getNickName();
+		std::cout << "|" << std::endl;
 		i++;
 	}	
 }
