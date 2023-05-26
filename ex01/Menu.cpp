@@ -86,8 +86,10 @@ void	Search(std::string	buffer, PhoneBook *list)
 	
 	(void)buffer;
 	ContactsSaved(list);
+	std::cout << std::endl;
 	std::cout << "Insert the index: ";
 	std::getline(std::cin, id);
+	std::cout << std::endl;
 	aux = id.c_str();
 	if (isdigit(aux[0]))
 	{	
@@ -95,10 +97,10 @@ void	Search(std::string	buffer, PhoneBook *list)
 		if (i >= 1 && i <= 8)
 		{
 			i -= 1;
-			std::cout << list->contacts[i].getName() << std::endl; 		
-			std::cout << list->contacts[i].getNickName() << std::endl;
-			std::cout << list->contacts[i].getNumber()	<< std::endl;
-			std::cout << list->contacts[i].getDarkSecret() << std::endl;
+			std::cout << "Name: " << list->contacts[i].getName() << std::endl;
+			std::cout << "NickName: " << list->contacts[i].getNickName() << std::endl;
+			std::cout << "Contact Number: " << list->contacts[i].getNumber()	<< std::endl;
+			std::cout << "Dark Secret: " << list->contacts[i].getDarkSecret() << std::endl;
 		}
 		else
 			std::cout << "Contact not found.\n" << std::endl;

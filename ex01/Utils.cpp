@@ -2,6 +2,7 @@
 
 void	menu( void )
 {
+	std::cout << std::endl;
 	std::cout << std::left << std::setfill('.') << std::setw(12);
 	std::cout << "ADD" << "Save a new contact" << std::endl;
 	std::cout << std::left << std::setfill('.') << std::setw(12);
