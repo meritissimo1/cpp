@@ -70,11 +70,9 @@ void	ContactsSaved(PhoneBook *list)
 		std::cout << "|"; 
 		truncated(con.getName()); 
 		std::cout << "|";
-		std::cout << std::right << std::setfill(' ') << std::setw(10);
-		std::cout << con.getLastName();
+		truncated(con.getLastName());
 		std::cout << "|";
-		std::cout << std::right << std::setfill(' ') << std::setw(10);
-		std::cout << con.getNickName();
+		truncated(con.getNickName());
 		std::cout << "|" << std::endl;
 		i++;
 	}	
