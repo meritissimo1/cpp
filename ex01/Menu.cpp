@@ -13,6 +13,9 @@ void	Add(PhoneBook *list)
 	PhoneNumber(list->contacts[i]);
 	DarkSecret(list->contacts[i]);
 	list->NumberOfContacts++;
+	list->TotalOfContacts++;
+	if (list->TotalOfContacts > 8)
+		list->TotalOfContacts = 8;
 }
 
 void	truncated(std::string InfoContact)
@@ -58,7 +61,7 @@ void	ContactsSaved(PhoneBook *list)
 	std::cout << std::right << std::setfill(' ') << std::setw(10);
 	std::cout << "NickName";
 	std::cout << "|" << std::endl;
-	while (list->contacts[i].getName() != "")
+	while (i < list->TotalOfContacts)
 	{
 		con = list->contacts[i];
 		std::cout << "|";
@@ -74,8 +77,6 @@ void	ContactsSaved(PhoneBook *list)
 		std::cout << con.getNickName();
 		std::cout << "|" << std::endl;
 		i++;
-		if (i == 8)
-			break;
 	}	
 }
 

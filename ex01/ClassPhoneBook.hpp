@@ -16,6 +16,7 @@ public:
 	
 	Contact contacts[8];
 	int		NumberOfContacts;
+	int		TotalOfContacts;
 	PhoneBook( void );
 	~PhoneBook( void );
 
