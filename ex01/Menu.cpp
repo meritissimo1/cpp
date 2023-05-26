@@ -74,6 +74,8 @@ void	ContactsSaved(PhoneBook *list)
 		std::cout << con.getNickName();
 		std::cout << "|" << std::endl;
 		i++;
+		if (i == 8)
+			break;
 	}	
 }
 
