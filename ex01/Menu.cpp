@@ -25,6 +25,7 @@ void	truncated(std::string InfoContact)
 	i = 0;
 	if (InfoContact.length()>= 10)
 	{	
+		std::cout << std::right << std::setfill(' ') << std::setw(3); 
 		while (i <= 9)
 		{
 			if (i == 9)
@@ -35,9 +36,8 @@ void	truncated(std::string InfoContact)
 	}
 	else
 	{
-		std::cout << std::right << std::setfill(' ') << std::setw(10); 
-		std::cout << InfoContact;
-		
+		std::cout << std::right << std::setfill(' ') << std::setw(12);
+		std::cout << InfoContact;	
 	}
 	
 }
@@ -49,23 +49,23 @@ void	ContactsSaved(PhoneBook *list)
 
 	i = 0;
 	std::cout << "|";
-	std::cout << std::right << std::setfill(' ') << std::setw(10); 
+	std::cout << std::right << std::setfill(' ') << std::setw(12); 
 	std::cout << "Index"; 
 	std::cout << "|";
-	std::cout << std::right << std::setfill(' ') << std::setw(10); 
+	std::cout << std::right << std::setfill(' ') << std::setw(12); 
 	std::cout << "FirstName";
 	std::cout << "|";
-	std::cout << std::right << std::setfill(' ') << std::setw(10);
+	std::cout << std::right << std::setfill(' ') << std::setw(12);
 	std::cout << "LastName";
 	std::cout << "|";
-	std::cout << std::right << std::setfill(' ') << std::setw(10);
+	std::cout << std::right << std::setfill(' ') << std::setw(12);
 	std::cout << "NickName";
 	std::cout << "|" << std::endl;
 	while (i < list->TotalOfContacts)
 	{
 		con = list->contacts[i];
 		std::cout << "|";
-		std::cout << std::right << std::setfill(' ') << std::setw(10); 
+		std::cout << std::right << std::setfill(' ') << std::setw(12); 
 		std::cout << i + 1;
 		std::cout << "|"; 
 		truncated(con.getName()); 
@@ -94,7 +94,7 @@ void	Search(std::string	buffer, PhoneBook *list)
 	if (isdigit(aux[0]))
 	{	
 		i = std::atoi(aux);
-		if (i >= 1 && i <= 8)
+		if (i >= 1 && i <= 8 && i <= list->TotalOfContacts)
 		{
 			i -= 1;
 			std::cout << "Name: " << list->contacts[i].getName() << std::endl;
