@@ -1,4 +1,4 @@
-#include "ClassPhoneBook.hpp"
+#include "PhoneBook.hpp"
 
 void	menu( void )
 {
@@ -16,5 +16,5 @@ void	input_user(std::string buffer, PhoneBook *list)
 	if (buffer == "ADD")
 		Add(list);
 	else if (buffer == "SEARCH")
-		Search(buffer, list);
+		Search(list);
 }

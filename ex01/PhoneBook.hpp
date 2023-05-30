@@ -6,7 +6,7 @@
 # include <string>
 # include <stdlib.h>
 # include <iomanip>
-# include "ClassContact.hpp"
+# include "Contact.hpp"
 # include <sstream>
 # include <ctype.h>
 
@@ -30,6 +30,6 @@ void	NickName(Contact& contact);
 void	PhoneNumber(Contact& contact);
 void	DarkSecret(Contact& contact);
 void	Add(PhoneBook *list);
-void	Search(std::string buffer, PhoneBook *list);
+void	Search(PhoneBook *list);
 
 #endif

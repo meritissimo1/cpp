@@ -1,4 +1,4 @@
-#include "ClassPhoneBook.hpp"
+#include "PhoneBook.hpp"
 
 void	Add(PhoneBook *list)
 {
@@ -23,7 +23,7 @@ void	truncated(std::string InfoContact)
 	int i;
 
 	i = 0;
-	if (InfoContact.length()>= 10)
+	if (InfoContact.length() >= 10)
 	{	
 		std::cout << std::right << std::setfill(' ') << std::setw(3); 
 		while (i <= 9)
@@ -78,13 +78,12 @@ void	ContactsSaved(PhoneBook *list)
 	}	
 }
 
-void	Search(std::string	buffer, PhoneBook *list) 
+void	Search(PhoneBook *list) 
 {
 	std::string	id;
 	const char *aux;
 	int			i;
 	
-	(void)buffer;
 	ContactsSaved(list);
 	std::cout << std::endl;
 	std::cout << "Insert the index: ";
@@ -98,6 +97,7 @@ void	Search(std::string	buffer, PhoneBook *list)
 		{
 			i -= 1;
 			std::cout << "Name: " << list->contacts[i].getName() << std::endl;
+			std::cout << "Last Name: " << list->contacts[i].getLastName() << std::endl;
 			std::cout << "NickName: " << list->contacts[i].getNickName() << std::endl;
 			std::cout << "Contact Number: " << list->contacts[i].getNumber()	<< std::endl;
 			std::cout << "Dark Secret: " << list->contacts[i].getDarkSecret() << std::endl;
