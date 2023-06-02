@@ -1,13 +1,25 @@
 #include <iostream>
+#include <cctype>
+
+std::string	ft_ToUpper(std::string string)
+{
+	int	i;
+
+	i = 0;
+	while (string[i])
+	{
+		string[i] = std::toupper(string[i]);
+		i++;
+	}
+	return (string);
+}
 
 int main(int argc, char **argv)
 {
-	int i;
-	int j;
-	char c;
-	
+	int 		i;
+	std::string	s;	
+
 	i = 1;
-	j = 0;	
 	if ((argc - 1) == 0)
 	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
@@ -15,15 +27,8 @@ int main(int argc, char **argv)
 	}
 	while (argv[i])
 	{	
-		j = 0;
-		while (argv[i][j])
-		{
-			c = argv[i][j];
-			if (argv[i][j] >= 'a' && argv[i][j] <= 'z')
-				c -= 32;
-			std::cout << c;
-			j++;
-		}	
+		s = ft_ToUpper(argv[i]);
+		std::cout << s;
 		i++;
 	}
 	std::cout << std::endl;

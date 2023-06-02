@@ -24,8 +24,7 @@ void	truncated(std::string InfoContact)
 
 	i = 0;
 	if (InfoContact.length() >= 10)
-	{	
-		std::cout << std::right << std::setfill(' ') << std::setw(3); 
+	{
 		while (i <= 9)
 		{
 			if (i == 9)
@@ -36,7 +35,7 @@ void	truncated(std::string InfoContact)
 	}
 	else
 	{
-		std::cout << std::right << std::setfill(' ') << std::setw(12);
+		std::cout << std::right << std::setfill(' ') << std::setw(10);
 		std::cout << InfoContact;	
 	}
 	
@@ -49,23 +48,23 @@ void	ContactsSaved(PhoneBook *list)
 
 	i = 0;
 	std::cout << "|";
-	std::cout << std::right << std::setfill(' ') << std::setw(12); 
+	std::cout << std::right << std::setfill(' ') << std::setw(10); 
 	std::cout << "Index"; 
 	std::cout << "|";
-	std::cout << std::right << std::setfill(' ') << std::setw(12); 
+	std::cout << std::right << std::setfill(' ') << std::setw(10); 
 	std::cout << "FirstName";
 	std::cout << "|";
-	std::cout << std::right << std::setfill(' ') << std::setw(12);
+	std::cout << std::right << std::setfill(' ') << std::setw(10);
 	std::cout << "LastName";
 	std::cout << "|";
-	std::cout << std::right << std::setfill(' ') << std::setw(12);
+	std::cout << std::right << std::setfill(' ') << std::setw(10);
 	std::cout << "NickName";
 	std::cout << "|" << std::endl;
 	while (i < list->TotalOfContacts)
 	{
 		con = list->contacts[i];
 		std::cout << "|";
-		std::cout << std::right << std::setfill(' ') << std::setw(12); 
+		std::cout << std::right << std::setfill(' ') << std::setw(10); 
 		std::cout << i + 1;
 		std::cout << "|"; 
 		truncated(con.getName()); 
@@ -81,7 +80,6 @@ void	ContactsSaved(PhoneBook *list)
 void	Search(PhoneBook *list) 
 {
 	std::string	id;
-	const char *aux;
 	int			i;
 	
 	ContactsSaved(list);
@@ -89,10 +87,9 @@ void	Search(PhoneBook *list)
 	std::cout << "Insert the index: ";
 	std::getline(std::cin, id);
 	std::cout << std::endl;
-	aux = id.c_str();
-	if (isdigit(aux[0]))
+	if (isdigit(id[0]) && id.length() == 1)
 	{	
-		i = std::atoi(aux);
+		i = id[0] - '0';
 		if (i >= 1 && i <= 8 && i <= list->TotalOfContacts)
 		{
 			i -= 1;
@@ -105,4 +102,6 @@ void	Search(PhoneBook *list)
 		else
 			std::cout << "Contact not found.\n" << std::endl;
 	}
+	else
+		std::cout << "Invalid Contact." << std::endl;
 }

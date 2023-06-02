@@ -4,10 +4,10 @@ PhoneBook::PhoneBook( void )
 {
 	this->NumberOfContacts = 0;
 	this->TotalOfContacts = 0;
-	return;
+	return ;
 }
 
 PhoneBook::~PhoneBook( void )
 {
-	return;
+	return ;
 }

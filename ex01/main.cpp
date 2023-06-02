@@ -1,13 +1,10 @@
 #include "PhoneBook.hpp"
 
-int	main(int argc, char **argv)
+int	main()
 {
-	PhoneBook	instance;
+	PhoneBook	phonebook;
 	std::string	buffer;
 
-	(void)argv;
-	if (argc > 1)
-		return (0);
 	while (1)
 	{
 		menu();
@@ -23,7 +20,7 @@ int	main(int argc, char **argv)
 				return (0);
 			}
 		}
-		input_user(buffer, &instance);
+		input_user(buffer, &phonebook);
 	}	 
 	return (0);
 }

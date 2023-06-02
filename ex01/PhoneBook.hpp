@@ -1,22 +1,20 @@
 #ifndef PHONE_BOOK_H
 # define PHONE_BOOK_H
 
-# include <stdio.h>
 # include <iostream>
 # include <string>
-# include <stdlib.h>
 # include <iomanip>
 # include "Contact.hpp"
-# include <sstream>
-# include <ctype.h>
 
-class PhoneBook {	
+class PhoneBook 
+{	
 
-public:
+	public:
 	
-	Contact contacts[8];
-	int		NumberOfContacts;
-	int		TotalOfContacts;
+		Contact contacts[8];
+		int		NumberOfContacts;
+		int		TotalOfContacts;
+	
 	PhoneBook( void );
 	~PhoneBook( void );
 
