@@ -29,5 +29,6 @@ void	PhoneNumber(Contact& contact);
 void	DarkSecret(Contact& contact);
 void	Add(PhoneBook *list);
 void	Search(PhoneBook *list);
+int		Exit();
 
 #endif
