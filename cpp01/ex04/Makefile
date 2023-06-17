@@ -1,4 +1,4 @@
-NAME	= zombieHorder
+NAME	= replace
 
 CC		= c++
 
@@ -6,7 +6,7 @@ CFLAGS	= -Wall -Wextra -Werror -g
 
 STDLIB	= -std=c++98
 
-SRC		= main.cpp HumanA.cpp HumanB.cpp Weapon.cpp 
+SRC		= main.cpp 
 
 OBJS	= $(SRC:.cpp=.o)
 
@@ -27,10 +27,13 @@ fclean:
 
 re: fclean all
 
-d: all
-	gdb --tui $(NAME)
+d: $(NAME)
+	gdb --tui --args $(NAME) a a b
 
-v: all
-	valgrind --leak-check=full ./$(NAME)
+v: $(NAME)
+	valgrind --leak-check=full ./$(NAME) a a a
+
+v1: $(NAME)
+	
 
 .PHONY: all clean fclean re
