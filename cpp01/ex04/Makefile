@@ -28,12 +28,12 @@ fclean:
 re: fclean all
 
 d: $(NAME)
-	gdb --tui --args $(NAME) a a b
+	gdb --tui --args $(NAME) arquivo ds ds
 
 v: $(NAME)
-	valgrind --leak-check=full ./$(NAME) a a a
+	valgrind --leak-check=full ./$(NAME) arquivo aaaa oo
 
 v1: $(NAME)
-	
+	valgrind --leak-check=full ./$(NAME) arquivo  aaaa aaaa
 
 .PHONY: all clean fclean re
