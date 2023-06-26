@@ -4,6 +4,11 @@ int	main(void)
 {
 	Harl	harl;
 
-	harl.complain("");
+	harl.complain("DEBUG");
+	// harl.complain("INFO");
+	// harl.complain("WARNING");
+	// harl.complain("ERROR");
+	// harl.complain("debug");
 	return (0);
 }
+
