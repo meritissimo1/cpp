@@ -12,12 +12,18 @@ class	Harl
 		void complain(std::string level);
 		Harl(void);
 		~Harl(void);
-		enum Levels
+		enum enumLevels
 		{
-			DEBUG;
-			INFO;
-			WARNING;
-			ERROR
+			DEBUG,
+			INFO,
+			WARNING,
+			ERROR,
+			TOTAL
+		};
+		struct enumMap
+		{
+			std::string	level;
+			enumLevels	value;
 		};
 
 	private:

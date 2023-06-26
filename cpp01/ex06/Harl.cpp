@@ -9,33 +9,56 @@ void	Harl::debug(void)
 	std::cout << "debug" << std::endl;
 }
 
-void	Harl::info(void) {}
+void	Harl::info(void) 
+{
+	std::cout << "info" << std::endl;
+}
 
-void	Harl::warning(void) {}
+void	Harl::warning(void) 
+{
+	std::cout << "warning" << std::endl;
+}
 
-void	Harl::error(void) {}
+void	Harl::error(void) 
+{
+	std::cout << "error" << std::endl;
+}
 
 void	Harl::complain(std::string level)
 {
-	int	c = level[0];
-	c %= 10;
+	int	value;
+	int	i;
 
-	switch(1)
+	value = 0;
+	static const  enumMap levels[] = {
+		{"DEBUG", DEBUG},
+		{"INFO", INFO},
+		{"WARNING", WARNING},
+		{"ERROR", ERROR}
+	};
+	for (i = 0; i < TOTAL; i++)
 	{
-		case 1:
-			this->debug();
+		if (level == levels[i].level)
+		{
+			value = levels[i].value;
 			break;
-		case 2:
-			this->info();
-			break;
-		case 3:
-			this->warning();
-			break;
-		case 4:
-			this->error();
-			break;
-		default:
-			std::cout << "error: operator is doesn't match any case constant" << std::endl;
-			break;
+		}
 	}
+	if (i < 4)
+	{
+		switch(value)
+		{
+			case DEBUG:
+				this->debug();
+			case INFO:
+				this->info();
+			case WARNING:
+				this->warning();
+			case ERROR:
+				this->error();
+		}
+	
+	}
+	else
+		std::cout << "error: Not match" << std::endl;
 }
