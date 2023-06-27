@@ -6,7 +6,7 @@ int main(void)
 	int		i;
 
 	horder = zombieHorder(N, "Ellie");
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < N; i++)
 	{
 		horder->announce();
 	}

@@ -1,4 +1,4 @@
-NAME	= zombieHorder
+NAME	= weapon
 
 CC		= c++
 
