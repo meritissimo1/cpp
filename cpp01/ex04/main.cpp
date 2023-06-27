@@ -34,7 +34,9 @@ std::string	replaceString(std::fstream& file, std::string str1, std::string str2
 int	main(int ac, char **av)
 {
 	std::string	outputFile;
+	int	index;
 
+	index = 0;
 	if (ac - 1 != 3)
 	{
 		std::cout << "usage: ./replace [FILE] [str_tobe_replaced] [str_that_replace]" << std::endl;
@@ -49,10 +51,14 @@ int	main(int ac, char **av)
 	std::string replaced = replaceString(ifs, av[2], av[3]);
 	if (replaced == "NULL")
 	{
-		std::cout << "No match" << std::endl;
+		ifs.close();
+		std::cout << "error: No match" << std::endl;
 		return (0);
 	}
 	outputFile = av[1];
+	index = outputFile.find('.', index);
+	if (index > 0)
+		outputFile = outputFile.substr(0, index);
 	outputFile +=  ".replace";
 	std::ofstream ofs(outputFile.c_str());
 	ofs << replaced;

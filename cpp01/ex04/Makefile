@@ -28,7 +28,7 @@ fclean:
 re: fclean all
 
 d: $(NAME)
-	gdb --tui --args $(NAME) arquivo ds ds
+	gdb --tui --args $(NAME) arquivo.test ds fff
 
 v: $(NAME)
 	valgrind --leak-check=full ./$(NAME) arquivo aaaa oo
