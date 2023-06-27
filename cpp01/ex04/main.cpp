@@ -6,15 +6,16 @@ std::string	replaceString(std::fstream& file, std::string str1, std::string str2
 {
 	std::string line;
 	std::string	replaceLine;
+	int		needle;
+
+	needle = 0;
 	while (std::getline(file, line))
 	{
 		size_t	pos;
 		size_t	prevPos;
-		int		needle;
 	
 		pos = 0;
 		prevPos = 0;
-		needle = 0;
 		while ((pos = line.find(str1, pos)) != std::string::npos)
 		{
 			replaceLine += line.substr(prevPos, pos - prevPos);
@@ -25,9 +26,9 @@ std::string	replaceString(std::fstream& file, std::string str1, std::string str2
 		}
 		replaceLine += line.substr(prevPos);
 		replaceLine += '\n';
-		if (!needle)
-			return ("NULL");
 	}
+	if (!needle)
+		return ("NULL");
 	return (replaceLine);
 }
 

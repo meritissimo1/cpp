@@ -1,4 +1,4 @@
-NAME	= replace
+NAME	= fixedpoint 
 
 CC		= c++
 
@@ -6,7 +6,7 @@ CFLAGS	= -Wall -Wextra -Werror -g
 
 STDLIB	= -std=c++98
 
-SRC		= main.cpp 
+SRC		= main.cpp Fixed.cpp
 
 OBJS	= $(SRC:.cpp=.o)
 
@@ -27,13 +27,10 @@ fclean:
 
 re: fclean all
 
-d: $(NAME)
-	gdb --tui --args $(NAME) test.cpp aaa bb
+d: all
+	gdb --tui $(NAME)
 
-v: $(NAME)
-	valgrind --leak-check=full ./$(NAME) arquivo aaaa oo
-
-v1: $(NAME)
-	valgrind --leak-check=full ./$(NAME) arquivo  aaaa aaaa
+v: all
+	valgrind --leak-check=full ./$(NAME)
 
 .PHONY: all clean fclean re
