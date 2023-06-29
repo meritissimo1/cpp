@@ -7,7 +7,7 @@
 class Fixed
 {
 	public:
-		Fixed( void );
+		Fixed(const int i);
 		Fixed(const Fixed &copyFixed);
 		Fixed &operator=(const Fixed &assignmentFixed);
 		~Fixed( void );

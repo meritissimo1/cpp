@@ -5,6 +5,7 @@ const int Fixed::bits = 8;
 Fixed::Fixed( void )
 {
 	std::cout << "Default constructor called" << std::endl;
+	FixedPoint =
 	this->FixedPoint = 0;
 }
 
