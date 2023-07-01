@@ -7,12 +7,13 @@
 class Fixed
 {
 	public:
-		Fixed(const int i);
+		Fixed(const int number);
+		Fixed(const float number);
 		Fixed(const Fixed &copyFixed);
 		Fixed &operator=(const Fixed &assignmentFixed);
 		~Fixed( void );
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
+		float	toFloat( void ) const;
+		int		toInt( void ) const;
 
 	private:
 		int					FixedPoint;

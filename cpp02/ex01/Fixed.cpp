@@ -2,14 +2,29 @@
 
 const int Fixed::bits = 8;
 
-Fixed::Fixed( void )
+Fixed::Fixed(const int number)
 {
-	std::cout << "Default constructor called" << std::endl;
-	FixedPoint =
-	this->FixedPoint = 0;
+	std::cout << "Int constructor called" << std::endl;
+	this->FixedPoint = number << this->bits;
 }
 
-Fixed::~Fixed( void ) 
+Fixed::Fixed(const float number)
+{
+	std::cout << "Float constructor called" << std::endl;
+	this->FixedPoint = number * (1 << this->bits);	
+}
+
+int	Fixed::toInt( void ) const
+{
+	int	integerValue;
+	int scaling;
+
+	scaling = 1 << this->FixedPoint;	
+	integerValue = static_cast<int>(this->FixedPoint *  scaling);
+	return (integerValue);
+}
+
+Fixed::~Fixed( void )
 {
 	std::cout << "Destructor called" << std::endl;
 }
@@ -25,16 +40,5 @@ Fixed	&Fixed::operator=(const Fixed &assignmentFixed)
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->FixedPoint = assignmentFixed.FixedPoint;
 	return (*this);
-}
-
-int	Fixed::getRawBits( void ) const
-{
-	std::cout << "getRawBits member function called" << std::endl;
-	return (this->FixedPoint);
-}
-
-void	Fixed::setRawBits(int const raw)
-{
-	this->FixedPoint = raw;
 }
 
