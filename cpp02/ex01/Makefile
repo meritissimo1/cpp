@@ -1,4 +1,4 @@
-NAME	= weapon
+NAME	= fixedpoint 
 
 CC		= c++
 
@@ -6,7 +6,7 @@ CFLAGS	= -Wall -Wextra -Werror -g
 
 STDLIB	= -std=c++98
 
-SRC		= main.cpp HumanA.cpp HumanB.cpp Weapon.cpp 
+SRC		= main.cpp Fixed.cpp
 
 OBJS	= $(SRC:.cpp=.o)
 

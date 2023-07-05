@@ -1,4 +1,4 @@
-NAME	= zombieHorder
+NAME	= PtrRef 
 
 CC		= c++
 

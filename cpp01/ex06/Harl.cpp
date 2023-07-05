@@ -29,7 +29,11 @@ void	Harl::complain(std::string level)
 	int	value;
 	int	i;
 
+<<<<<<< HEAD
 	value = 0;
+=======
+	value = 4;
+>>>>>>> 2cad22e9b4a7bdca2cdf01d9329147d0da0976fd
 	static const  enumMap levels[] = {
 		{"DEBUG", DEBUG},
 		{"INFO", INFO},
@@ -44,6 +48,7 @@ void	Harl::complain(std::string level)
 			break;
 		}
 	}
+<<<<<<< HEAD
 	if (i < 4)
 	{
 		switch(value)
@@ -61,4 +66,21 @@ void	Harl::complain(std::string level)
 	}
 	else
 		std::cout << "error: Not match" << std::endl;
+=======
+	switch(value)
+	{
+		case DEBUG:
+			this->debug();
+		case INFO:
+			this->info();
+		case WARNING:
+			this->warning();
+		case ERROR:
+			this->error();
+			break;
+		default:
+			std::cout << "error: Not match" << std::endl;
+	}	
+>>>>>>> 2cad22e9b4a7bdca2cdf01d9329147d0da0976fd
 }
+
