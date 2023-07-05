@@ -19,6 +19,9 @@ int main( void )
 	
 
 	std::cout << fixed1 << " * " << fixed2 <<  " = " << fixed2 * fixed1 << std::endl;
+	std::cout << fixed1 << " + " << fixed2 <<  " = " << fixed2 + fixed1 << std::endl;
+	std::cout << fixed1 << " - " << fixed2 <<  " = " << fixed2 - fixed1 << std::endl;
+	std::cout << fixed1 << " / " << fixed2 <<  " = " << fixed2 / fixed1 << std::endl;
 	std::cout << b << std::endl;
 	std::cout << std::boolalpha; // muda o retorno das de baixo
     	std::cout << (fixed3 == fixed2) << std::endl;

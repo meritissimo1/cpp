@@ -61,6 +61,21 @@ float	Fixed::operator*(const Fixed &fixed) const
 	return (float(this->toFloat() * fixed.toFloat()));
 }
 
+float	Fixed::operator+(const Fixed &fixed) const
+{
+	return (float(this->toFloat() + fixed.toFloat()));
+}
+
+float	Fixed::operator-(const Fixed &fixed) const
+{
+	return ((this->toFloat() - fixed.toFloat()));
+}
+
+float	Fixed::operator/(const Fixed &fixed) const
+{
+	return ((this->toFloat() / fixed.toFloat()));	
+}
+
 bool	Fixed::operator==(const Fixed &fixed) const
 {
 	return ((this->toFloat() == fixed.toFloat()));
