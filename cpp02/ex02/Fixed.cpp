@@ -14,7 +14,7 @@ Fixed::Fixed(const float number)
 	this->FixedPoint = roundf((number * (1 << this->bits)));
 }
 
-int	Fixed::toInt( void ) const
+int		Fixed::toInt( void ) const
 {
 	return(this->FixedPoint / (1 << this->bits)); 
 }
@@ -78,4 +78,29 @@ Fixed	Fixed::operator++(int)
 	aux.FixedPoint = this->getRawBits();
 	this->setRawBits(this->getRawBits() + 1);
 	return (aux);
+}
+
+bool	Fixed::operator>(const Fixed &fixed) const
+{
+	return ((this->toFloat() > fixed.toFloat()));
+}
+
+bool	Fixed::operator<(const Fixed &fixed) const
+{
+	return ((this->toFloat() < fixed.toFloat()));
+}
+
+bool	Fixed::operator>=(const Fixed &fixed) const
+{
+	return ((this->toFloat() >= fixed.toFloat()));	
+}
+
+bool	Fixed::operator<=(const Fixed &fixed) const
+{
+	return ((this->toFloat() <= fixed.toFloat()));
+}
+
+bool	Fixed::operator!=(const Fixed &fixed) const
+{
+	return ((this->toFloat() != fixed.toFloat()));
 }
