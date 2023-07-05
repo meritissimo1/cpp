@@ -12,7 +12,13 @@ class Fixed
 		Fixed(const int number);
 		Fixed(const float number);
 		Fixed(const Fixed &copyFixed);
-		Fixed &operator=(const Fixed &assignmentFixed);
+		int		getRawBits( void ) const;
+		void	setRawBits(int const raw);
+		Fixed	&operator=(const Fixed &fixed);
+		float	operator*(const Fixed &fixed) const;
+		bool	operator==(const Fixed &fixed) const;	
+		Fixed	&operator++(void);
+		Fixed	&operator++(int);
 		~Fixed( void );
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
