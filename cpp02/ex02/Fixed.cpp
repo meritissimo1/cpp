@@ -89,9 +89,25 @@ Fixed	&Fixed::operator++(void)
 
 Fixed	Fixed::operator++(int)
 {
-	Fixed aux = *this;
-	aux.FixedPoint = this->getRawBits();
+	Fixed aux;
+
+	aux = *this;
 	this->setRawBits(this->getRawBits() + 1);
+	return (aux);
+}
+
+Fixed	&Fixed::operator--(void)
+{
+	this->setRawBits(this->getRawBits() - 1);
+	return (*this);	
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed aux;
+
+	aux = *this;
+	this->setRawBits(this->getRawBits() - 1);
 	return (aux);
 }
 
