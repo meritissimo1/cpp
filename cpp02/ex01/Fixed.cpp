@@ -2,12 +2,15 @@
 
 const int Fixed::bits = 8;
 
-Fixed::Fixed( void ) : FixedPoint(0) {}
+Fixed::Fixed( void ) : FixedPoint(0) 
+{
+	std::cout << "Default constructor called" << std::endl;
+}
 
 Fixed::Fixed(const int number)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->FixedPoint = number * (1 << this->bits);
+	this->FixedPoint = number << this->bits;
 }
 
 Fixed::Fixed(const float number)
@@ -18,7 +21,7 @@ Fixed::Fixed(const float number)
 
 int	Fixed::toInt( void ) const
 {
-	return(this->FixedPoint / (1 << this->bits)); 
+	return(this->FixedPoint >> this->bits); 
 }
 
 float	Fixed::toFloat( void ) const
@@ -51,7 +54,7 @@ std::ostream &operator<<(std::ostream &o, const Fixed &Obj)
 	return (o);
 }
 
-int	Fixed::getRawBits( void ) const
+int		Fixed::getRawBits( void ) const
 {
 	return (this->FixedPoint);
 }
