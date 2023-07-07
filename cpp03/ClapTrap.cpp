@@ -70,8 +70,21 @@ void	ClapTrap::setAttack(int attackDamage)
 
 void	ClapTrap::attack(const std::string &target)
 {
+	if (this->_energyPoints <= 0 || this->_hitPoints <= 0)
+	{
+		std::cout << this->_name << "is dead or without energy points" << std::endl;
+		return ;
+	}
 	this->setEnergy(this->getEnergy() - 1);
 	std::cout << "ClapTrap " << this->getName() << " attacks " << target << " causing " << this->_attackDamage  << " points of damage" << std::endl;
 }
+
+void	ClapTrap::takeDamage(unsigned int amount)
+{
+	this->_hitPoints -= amount;
+	std::cout << "Claptrap " << this->_name << " take damage " << amount << std::endl;
+}
+
+
 
 

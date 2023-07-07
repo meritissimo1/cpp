@@ -3,8 +3,10 @@
 int main(void)
 {
 	ClapTrap	a("celo");
-	
-	a.attack("Isa");
+	ClapTrap	b("lucas");
+
+	a.attack(b.getName());
+	b.takeDamage(a.getAttack());
 		
 	return (0);
 }
