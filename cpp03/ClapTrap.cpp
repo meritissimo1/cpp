@@ -85,6 +85,8 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	std::cout << "Claptrap " << this->_name << " take damage " << amount << std::endl;
 }
 
-
-
-
+void	ClapTrap::beRapaired(unsigned int amount)
+{
+	this->_hitPoint += amount;
+	std::cout << "ClapTrap " << this->_name << " your health improve " << amount << std::endl;
+}
