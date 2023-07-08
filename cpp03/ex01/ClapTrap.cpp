@@ -1,10 +1,13 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : _name("<<Lucas"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {}
-
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap(void) : _name("<<Lucas"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap Default constructor called\n";
+}
+
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(100), _energyPoints(50), _attackDamage(20) 
+{
+	std::cout << "ClapTrap constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &cp)
@@ -35,7 +38,7 @@ std::ostream &operator<<(std::ostream &o, const ClapTrap &Obj)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap Destructor called" << std::endl;
 	return ;
 }
 

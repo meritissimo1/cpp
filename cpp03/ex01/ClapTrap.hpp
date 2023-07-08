@@ -32,13 +32,12 @@ class ClapTrap
 
 
 
-	private:
+	protected:
 		std::string _name;
 		int			_hitPoints;
 		int			_energyPoints;
 		int			_attackDamage;
 };
-
 
 std::ostream &operator<<(std::ostream &o, const ClapTrap &Obj);
 
