@@ -56,6 +56,6 @@ void	ScavTrap::guardGate( void )
 	if (_hitPoints <= 0)
 		std::cout << "ScavTrap is dead\n";
 	else
-		std::cout << " ScavTrap " << _name << " is now in Gate keeper mode" 
+		std::cout << "ScavTrap " << _name << " is now in Gate keeper mode" 
 		<< std::endl;
 }
