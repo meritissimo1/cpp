@@ -7,11 +7,11 @@ ScavTrap::ScavTrap(void) : ClapTrap()
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-c}
+	std::cout << "ScavTrap constructor called\n";
+}
 
 ScavTrap::ScavTrap(const ClapTrap &ct) : ClapTrap(ct)
 {
-	std::cout << "ScavTrap Copy constructor called\n";
 	this->_name = ct.getName();
 	this->_hitPoints = ct.getHit();
 	this->_attackDamage = ct.getAttack();
@@ -54,7 +54,7 @@ ScavTrap::~ScavTrap( void )
 void	ScavTrap::guardGate( void )
 {
 	if (_hitPoints <= 0)
-		std::cout << "ScavTrap " << _name << " is dead"; 
+		std::cout << "ScavTrap is dead\n";
 	else
 		std::cout << "ScavTrap " << _name << " is now in Gate keeper mode" 
 		<< std::endl;

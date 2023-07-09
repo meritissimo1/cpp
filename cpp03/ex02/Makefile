@@ -1,4 +1,4 @@
-NAME	= scavtrap 
+NAME	= fragtrap 
 
 CC		= c++
 
@@ -6,7 +6,7 @@ CFLAGS	= -Wall -Wextra -Werror -g
 
 STDLIB	= -std=c++98
 
-SRC		= main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC		= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJS	= $(SRC:.cpp=.o)
 
