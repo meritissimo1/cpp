@@ -7,12 +7,15 @@ class ScavTrap : public ClapTrap
 {
 	public:
 		ScavTrap(void);
-		ScavTrap(const ScavTrap &st);
 		ScavTrap(std::string name);
+		ScavTrap(const ClapTrap &ct);
+		ScavTrap(const ScavTrap &st);
 		ScavTrap &operator=(const ScavTrap &st);
 		~ScavTrap(void);
 		
 		void guardGate();
 };
+
+std::ostream	&operator<<(std::ostream &o, const ScavTrap &st);
 
 #endif

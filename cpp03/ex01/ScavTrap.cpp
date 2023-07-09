@@ -10,6 +10,14 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	std::cout << "ScavTrap constructor called\n";
 }
 
+ScavTrap::ScavTrap(const ClapTrap &ct) : ClapTrap(ct)
+{
+	this->_name = ct.getName();
+	this->_hitPoints = ct.getHit();
+	this->_attackDamage = ct.getAttack();
+	this->_energyPoints = ct.getEnergy();
+}
+
 ScavTrap::ScavTrap(const ScavTrap &st) : ClapTrap(st)
 {
 	std::cout << "ScavTrap Copy constructor called\n";
@@ -29,12 +37,25 @@ ScavTrap 	&ScavTrap::operator=(const ScavTrap &st)
 	return (*this);
 }
 
+std::ostream &operator<<(std::ostream &o, const ScavTrap &obj)
+{
+	o << "Name: "<< obj.getName() << std::endl;
+	o << "Attack damage: " << obj.getAttack() << std::endl;
+	o << "Energy Points: "<< obj.getEnergy() << std::endl;
+	o << "Hit Points: " << obj.getHit() << std::endl;
+	return (o);
+}
+
 ScavTrap::~ScavTrap( void ) 
 {
 	std::cout << "ScavTrap Destructor called\n";
 }
 
-void	guardGate( void )
+void	ScavTrap::guardGate( void )
 {
-	std::cout << "Gate keeper mode" << std::endl;
+	if (_hitPoints <= 0)
+		std::cout << "ScavTrap is dead\n";
+	else
+		std::cout << " ScavTrap " << _name << " is now in Gate keeper mode" 
+		<< std::endl;
 }
