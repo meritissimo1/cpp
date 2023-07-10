@@ -7,7 +7,8 @@ ScavTrap::ScavTrap(void) : ClapTrap()
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-c}
+	std::cout << "ScavTrap constructor called\n";
+}
 
 ScavTrap::ScavTrap(const ClapTrap &ct) : ClapTrap(ct)
 {
