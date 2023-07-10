@@ -2,11 +2,18 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
+	_name = "Edu";
+	_hitPoints = 100; 
+	_energyPoints = 50;
+	_attackDamage = 20;
 	std::cout << "ScavTrap Default constructor called\n";
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
+	_hitPoints = 100; 
+	_energyPoints = 50;
+	_attackDamage = 20;
 	std::cout << "ScavTrap constructor called\n";
 }
 
@@ -52,10 +59,27 @@ ScavTrap::~ScavTrap( void )
 	std::cout << "ScavTrap Destructor called\n";
 }
 
+void	ScavTrap::attack(const std::string &target)
+{
+	if (this->_hitPoints <= 0)
+	{
+		std::cout << this->_name << " is dead" << std::endl;
+		return ;
+	}
+	else if (this->_energyPoints <= 0)
+		std::cout << this->_name << " without energy points" << std::endl;
+	else
+	{
+		this->_energyPoints--;
+		std::cout << "ScavTrap " << this->getName() << " attacks " << target 
+		<< " causing " << this->_attackDamage  << " points of damage" << std::endl;
+	}
+}
+
 void	ScavTrap::guardGate( void )
 {
 	if (_hitPoints <= 0)
-		std::cout << "ScavTrap is dead\n";
+		std::cout << "ScavTrap " << _name << " is dead"; 
 	else
 		std::cout << "ScavTrap " << _name << " is now in Gate keeper mode" 
 		<< std::endl;
