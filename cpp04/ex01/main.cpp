@@ -5,18 +5,25 @@
 int main(void)
 {
 	Animal	*animal = new Animal();
+	std::cout << std::endl;
 	Animal	*dog = new Dog();
+	std::cout << std::endl;
 	Animal	*cat = new Cat();
+	std::cout << std::endl;
 	Animal	dog1;
+	std::cout << std::endl;
 	WrongAnimal *wronganimal = new WrongAnimal();
+	std::cout << std::endl;
 	WrongAnimal *wrongcat = new WrongCat();
-	Animal *lucas[10];
-
+	std::cout << std::endl;
+	Animal *lucas[4];
+	std::cout << std::endl;
+	
 	dog1 = *dog;
 
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		if (i < 5)
+		if (i < 2)
 			lucas[i] = new Dog();
 		else
 			lucas[i] = new Cat();
@@ -43,7 +50,7 @@ int main(void)
 	delete wrongcat;
 	delete wronganimal;
 
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 4; i++)
 		delete lucas[i];
 	return (0);
 }
