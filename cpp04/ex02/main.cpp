@@ -4,7 +4,7 @@
 
 int main(void)
 {
-	AAnimal	*lade = new Dog();
+	AAnimal	*lade = new Cat();
 	//AAnimal	lucas;	
 	
 	delete lade;
