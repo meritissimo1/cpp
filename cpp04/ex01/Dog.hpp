@@ -10,8 +10,10 @@ class	Dog : public Animal
 		Dog(const Dog &d);
 		Dog &operator=(const Dog &d);
 		~Dog( void );
-
 		void makeSound(void) const;
+
+	private:
+		Brain *_brain;
 };
 
 std::ostream	&operator<<(std::ostream &o, const Dog &a);
