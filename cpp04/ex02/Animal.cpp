@@ -24,11 +24,6 @@ AAnimal::~AAnimal( void )
 	std::cout << "Animal Destructor called\n";
 }
 
-void	AAnimal::makeSound( void ) const
-{
-	std::cout << "Animal Sound\n";
-}
-
 std::string	AAnimal::getType( void ) const
 {
 	return (this->_type);

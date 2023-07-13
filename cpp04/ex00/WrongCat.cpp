@@ -3,6 +3,7 @@
 WrongCat::WrongCat( void ) : WrongAnimal()
 {
 	std::cout << "WrongCat Default constructor called\n";
+	this->_type = "WrongCat";
 }
 
 WrongCat::WrongCat(const WrongCat &wa) : WrongAnimal(wa)
