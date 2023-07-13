@@ -65,14 +65,15 @@ int		Bureaucrat::getGrade(void) const
 
 void	Bureaucrat::incrementGrade(void)
 {
-	if (this->_grade < 1)
-		std::cout << "highexception";
-    this->_grade--;
+	if (this->_grade <= 1)
+		throw Bureaucrat::GradeTooHighException();
+	else
+    	this->_grade--;
 }
 
 void	Bureaucrat::decrementGrade(void)
 {
-	if (this->_grade > 150)
+	if (this->_grade >= 150)
 		std::cout << "lowexception";
     this->_grade++;
 }
