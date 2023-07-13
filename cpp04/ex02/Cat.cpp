@@ -10,8 +10,7 @@ Cat::Cat( void ) : AAnimal()
 Cat::Cat(const Cat &c) : AAnimal()
 {
 	std::cout << "Cat Copy constructor called\n";
-	this->_brain = new Brain();
-	*this = c;
+	this->_brain = new Brain(*c._brain);
 }
 
 Cat	&Cat::operator=(const Cat &c)

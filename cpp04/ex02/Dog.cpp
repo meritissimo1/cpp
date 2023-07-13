@@ -10,7 +10,7 @@ Dog::Dog( void ) : AAnimal()
 Dog::Dog(const Dog &c) : AAnimal()
 {
 	std::cout << "Dog Copy constructor called\n";
-	*this = c;
+	this->_brain = new Brain(*c._brain);
 }
 
 Dog	&Dog::operator=(const Dog &c)
