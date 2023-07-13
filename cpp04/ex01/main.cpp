@@ -18,8 +18,10 @@ int main(void)
 	std::cout << std::endl;
 	Animal *lucas[4];
 	std::cout << std::endl;
-	
-	dog1 = *dog;
+	Dog	dog3;
+	Dog dog4;
+
+
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -28,6 +30,11 @@ int main(void)
 		else
 			lucas[i] = new Cat();
 	}
+
+	dog3 = dog4;
+
+	std::cout << dog3.getBrain() << std::endl << dog4.getBrain() << std::endl;
+
 
 	std::cout << std::endl;
 	animal->makeSound();
