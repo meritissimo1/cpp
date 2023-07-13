@@ -18,8 +18,6 @@ int main(void)
 	std::cout << std::endl;
 	Animal *lucas[4];
 	std::cout << std::endl;
-	Dog	dog3;
-	Dog dog4;
 
 
 
@@ -30,10 +28,6 @@ int main(void)
 		else
 			lucas[i] = new Cat();
 	}
-
-	dog3 = dog4;
-
-	std::cout << dog3.getBrain() << std::endl << dog4.getBrain() << std::endl;
 
 
 	std::cout << std::endl;
