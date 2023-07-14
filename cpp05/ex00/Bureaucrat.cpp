@@ -11,23 +11,22 @@ Bureaucrat::Bureaucrat(const Bureaucrat &b)
     *this = b;
 }
 
-
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name)
 {
 	if (grade > 150)
-		std::cout << "lowexception\n";
+		throw Bureaucrat::GradeTooLowException();
 	else if (grade < 1)
-		std::cout << "highexception\n";
+		throw Bureaucrat::GradeTooHighException();
 	this->_grade = grade;
 	std::cout << "Bureaucrat Constructor called\n";
 }
 
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &b)
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &b)
 {
     if (this != &b)
     {
         std::cout << "Buraucrat Copy assignment operator called\n";
-        this->_name = b._name;
+        const_cast<std::string&>(this->_name) = b._name;
         this->_grade = b._grade;
     }
     return (*this);
@@ -40,7 +39,7 @@ Bureaucrat::~Bureaucrat( void )
 
 void	Bureaucrat::setName(std::string const name)
 {
-    this->_name = name;
+    const_cast<std::string&>(this->_name) = name;
 }
 
 std::string Bureaucrat::getName(void) const
@@ -74,7 +73,7 @@ void	Bureaucrat::incrementGrade(void)
 void	Bureaucrat::decrementGrade(void)
 {
 	if (this->_grade >= 150)
-		std::cout << "lowexception";
+		throw Bureaucrat::GradeTooLowException();
     this->_grade++;
 }
 
