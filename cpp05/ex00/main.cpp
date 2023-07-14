@@ -3,7 +3,7 @@
 int main(void)
 {
 	Bureaucrat gui("gui", 149);
-	
+
 	std::cout << std::endl;
 	std::cout << gui;
 
