@@ -48,11 +48,15 @@ int main(void)
 	nunes.executeForm(robot);
 	mm.executeForm(robot);
 
+	std::cout << std::endl;
+
 	PresidentialPardonForm lucas("lucas");
 	Bureaucrat lade("lade", 4);
 	
+	std::cout << std::endl;
 	lade.signForm(lucas);
 	lade.executeForm(lucas);
+	std::cout << std::endl;
 
 	return (0);
 }
