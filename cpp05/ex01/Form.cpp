@@ -7,9 +7,9 @@ Form::Form( void ) : _gradeSign(1), _gradeExecute(1)
 	std::cout << "Form Default constructor called\n";
 }
 
-Form::Form(const Form &b) : _gradeSign(1), _gradeExecute(1)
+Form::Form(const Form &b) : _gradeSign(b._gradeSign), _gradeExecute(b._gradeExecute)
 {
-	const_cast<std::string&>(this->_name) = "Form";
+	const_cast<std::string&>(this->_name) = b._name;
 	std::cout << "Form copy constructor called\n";
 	*this = b;
 }
