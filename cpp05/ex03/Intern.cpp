@@ -41,12 +41,12 @@ static AForm *makeRobotomyRequestForm(std::string target)
 
 const char* Intern::InvalidFormException::what(void) const throw()
 {
-	return ("Invalid input\n");
+	return ("Form not found\n");
 }
 
 AForm* Intern::makeForm(std::string form, std::string target)
 {
-	AForm *(*f[3])(std::string) = {makeShrubberyCreationForm, makePresidentialPardonForm, makeRobotomyRequestForm};
+	AForm *(*f[3])(std::string) = {&makeShrubberyCreationForm, &makePresidentialPardonForm, &makeRobotomyRequestForm};
 	std::string forms[3] = { "shrubbery creation", "presidential pardon", "robotomy request"};
 
 	for (int i = 0; i < 3; i++)
