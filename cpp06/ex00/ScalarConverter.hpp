@@ -4,8 +4,12 @@
 # include <iostream>
 # include <string>
 # include <cstdlib>
+# include <cctype>
+# include <limits>
 # include <cmath>
 # include <sstream>
+
+# define INVALID "invalid"
 
 class ScalarConverter
 {
