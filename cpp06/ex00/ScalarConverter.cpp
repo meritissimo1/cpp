@@ -38,16 +38,16 @@ int check_input(std::string input)
 
 bool getInt(const std::string& str)
 {
-    for (size_t i = 0; i < str.length(); i++)
-    {
-        if (i == 0 && str[i] == '-')
-            continue;
-        if (!std::isdigit(static_cast<unsigned char>(str[i])))
-            return false;
-    }
-    if (str.length() > 11 && (str[0] != '-' || str.length() > 12))
-        return false;
-    return true;
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if (i == 0 && str[i] == '-')
+			continue;
+		if (!std::isdigit(static_cast<unsigned char>(str[i])))
+			return false;
+	}
+	if (str.length() > 11 && (str[0] != '-' || str.length() > 12))
+		return false;
+	return true;
 }
 
 std::string check_type(const std::string& str)
@@ -109,30 +109,52 @@ void	print_invalid()
 	std::cout << "double: nan" << std::endl;
 }
 
-void	convertFloat(std::string number)
+void	convertFloat(const char *number)
 {
 	std::cout << "Function to Float: "<< number << std::endl;
 }
 
-void	convertDouble(std::string number)
+void	convertDouble(const char *number)
 {
 	std::cout << "Function to Double: " << number << std::endl;
 }
 
-void	convertInt(std::string number)
+void	convertInt(const char *number)
 {
-	std::cout << "Function to Int: " << number << std::endl;
+	int n;
+
+	n = std::atoi(number);
+	if (n < ' ' || n > '~')
+	{
+		if (n > 255)
+			std::cout << "char: impossible" << std::endl;
+		else
+			std::cout << "char: Non displayable" << std::endl;
+	}
+	else
+		std::cout << "char: '" << static_cast<char>(n) << "'" << std::endl;
+	std::cout << "int: " << n << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(2) << static_cast<float>(n) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(2) << static_cast<double>(n) << std::endl;
 }
 
-void	convertChar(std::string number)
+
+void	convertChar(const char *number)
 {
-	std::cout << "Function Char: " << number << std::endl;
+	char c;
+
+	c = number[0];
+	std::cout << "char: " << c << std::endl;
+	std::cout << "int: " << static_cast<int>(c) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(2) << static_cast<float>(c) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(2) << static_cast<double>(c) << std::endl;
 }
 
 
-void ScalarConverter::convert(const std::string strToconvert)
+void ScalarConverter::convert(std::string strToconvert)
 {
-	void (*f[4])(std::string) = {convertFloat, convertDouble, convertInt, convertChar};
+	const char *input;
+	void (*f[4])(const char *) = {convertFloat, convertDouble, convertInt, convertChar};
 	std::string function[4] = {"float", "double", "int", "char"};
 	std::string type;
 
@@ -142,10 +164,14 @@ void ScalarConverter::convert(const std::string strToconvert)
 		return ;
 	}
 	type = check_type(strToconvert);
-	std::cout << "Type: "<< type << std::endl;
+	input = strToconvert.c_str();
 	for (int i = 0; i < 4; i++)
 	{
 		if (function[i] == type)
-			f[i](type);
+		{
+			f[i](input);
+			return ;
+		}	
 	}
+	std::cout << type << std::endl;
 }
