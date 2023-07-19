@@ -65,7 +65,7 @@ std::string check_type(const std::string& str)
 			return "Invalid input";
 		index = 1;
 	}
-	for (; index < str.length(); index++)
+	for (index = 1; index < str.length(); index++)
 	{
 		if (std::isdigit(str[index]))
 		{
@@ -94,7 +94,7 @@ std::string check_type(const std::string& str)
 		{
 			long value = std::strtol(str.c_str(), NULL, 10);
 			if (value > std::numeric_limits<int>::max() || value < std::numeric_limits<int>::min())
-				return "Invalid input";
+				return "maxmin";
 			return "int";
 		}
 	}
@@ -102,7 +102,6 @@ std::string check_type(const std::string& str)
 
 void	print_invalid()
 {
-
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
 	std::cout << "float: nanf" << std::endl;
@@ -111,12 +110,44 @@ void	print_invalid()
 
 void	convertFloat(const char *number)
 {
-	std::cout << "Function to Float: "<< number << std::endl;
+	float n = std::strtof(number, NULL);
+
+	if (n < ' ' || n > '~')
+	{
+		if (n > 255)
+			std::cout << "char: impossible" << std::endl;
+		else
+			std::cout << "char: Non displayable" << std::endl;
+	}
+	else
+		std::cout << "char: '" << static_cast<char>(n) << "'" << std::endl;
+	if (static_cast<int>(n) == -2147483648)
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(n) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(2) << static_cast<float>(n) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(2) << static_cast<double>(n) << std::endl;
 }
 
 void	convertDouble(const char *number)
 {
-	std::cout << "Function to Double: " << number << std::endl;
+	double n = std::strtod(number, NULL);
+
+	if (n < ' ' || n > '~')
+	{
+		if (n > 255)
+			std::cout << "char: impossible" << std::endl;
+		else
+			std::cout << "char: Non displayable" << std::endl;
+	}
+	else
+		std::cout << "char: '" << static_cast<char>(n) << "'" << std::endl;
+	if (static_cast<int>(n) == -2147483648)
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(n) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(2) << static_cast<float>(n) << "f" << std::endl;
+	std::cout << "double: " << n << std::endl;
 }
 
 void	convertInt(const char *number)
@@ -144,12 +175,21 @@ void	convertChar(const char *number)
 	char c;
 
 	c = number[0];
-	std::cout << "char: " << c << std::endl;
+	std::cout << "char: '" << c << "'" << std::endl;
 	std::cout << "int: " << static_cast<int>(c) << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(2) << static_cast<float>(c) << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(2) << static_cast<double>(c) << std::endl;
 }
 
+void	print_maxmin(const char * number)
+{
+	double n = std::strtod(number, NULL);
+
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(2) << static_cast<float>(n) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(2) << static_cast<double>(n) << std::endl;
+}
 
 void ScalarConverter::convert(std::string strToconvert)
 {
@@ -173,5 +213,8 @@ void ScalarConverter::convert(std::string strToconvert)
 			return ;
 		}	
 	}
-	std::cout << type << std::endl;
+	if (type == "maxmin")
+		print_maxmin(input);
+	else
+		std::cout << type << std::endl;
 }
