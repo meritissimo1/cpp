@@ -29,11 +29,11 @@ void identify(Base *p)
 {
 	std::cout << "type: ";
 	if (dynamic_cast<A *>(p))
-		std::cout << 'A' << std::endl;
+		std::cout << "(pointer) A" << std::endl;
 	else if (dynamic_cast<B *>(p))
-		std::cout << 'B' << std::endl;
+		std::cout << "(pointer) B" << std::endl;
 	else if (dynamic_cast<C *>(p))
-		std::cout << 'C' << std::endl;
+		std::cout << "(pointer) C" << std::endl;
 	else
 		std::cout << "None" << std::endl;
 }
@@ -41,13 +41,13 @@ void identify(Base *p)
 void identify(Base &p)
 {
 	std::cout << "type: ";
-    if (dynamic_cast<A*>(&p) != NULL)
-        std::cout << 'A' << std::endl;
-    else if (dynamic_cast<B*>(&p) != NULL)
-        std::cout << 'B' << std::endl;
-    else if (dynamic_cast<C*>(&p) != NULL)
-        std::cout << 'C' << std::endl;
-    else
-        std::cout << "None" << std::endl;
+	if (dynamic_cast<A*>(&p) != NULL)
+		std::cout << "(reference) A" << std::endl;
+	else if (dynamic_cast<B*>(&p) != NULL)
+		std::cout << "(reference) B" << std::endl;
+	else if (dynamic_cast<C*>(&p) != NULL)
+		std::cout << "(reference) C" << std::endl;
+	else
+		std::cout << "None" << std::endl;
 }
 
