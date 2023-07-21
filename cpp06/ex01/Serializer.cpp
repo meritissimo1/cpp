@@ -31,7 +31,7 @@ std::ostream &operator<<(std::ostream &o, Data &d)
 }
 
 
-uintptr_t Serializer::serialize(Data* ptr)
+uintptr_t Serializer::serialize(Data *ptr)
 {
 	uintptr_t result;
 
@@ -39,7 +39,7 @@ uintptr_t Serializer::serialize(Data* ptr)
 	return (result);
 }
 
-Data* Serializer::deserialize(uintptr_t raw)
+Data *Serializer::deserialize(uintptr_t raw)
 {
 	Data *result;
 
