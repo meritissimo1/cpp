@@ -13,7 +13,7 @@
 class ScalarConverter
 {
 	public:
-		ScalarConverter( void );
+		static ScalarConverter( void );
 		ScalarConverter(const ScalarConverter &sc);
 		ScalarConverter &operator=(const ScalarConverter &sc);
 		~ScalarConverter( void );
