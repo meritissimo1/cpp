@@ -16,6 +16,7 @@ int main( void )
 	Base &baseErrorRef = *new Base();
 	identify(baseError);
 	identify(baseErrorRef);
+	
 	delete baseError;
 	delete &baseErrorRef;
 	return(0);
