@@ -65,7 +65,7 @@ std::string check_type(const std::string& str)
 			return "Invalid input";
 		index = 1;
 	}
-	for (index = 1; index < str.length(); index++)
+	for (; index < str.length(); index++)
 	{
 		if (std::isdigit(str[index]))
 		{
