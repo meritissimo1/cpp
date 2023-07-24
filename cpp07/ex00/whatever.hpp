@@ -3,10 +3,10 @@
 
 # include <iostream>
 
-template <typename T>
-void swap(T &t1, T &t2)
+template <typename GENERIC>
+void swap(GENERIC &t1, GENERIC &t2)
 {
-	T aux;
+	GENERIC aux;
 	aux = t1;
 	t1 = t2;
 	t2 = aux;

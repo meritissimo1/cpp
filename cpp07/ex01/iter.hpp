@@ -12,6 +12,4 @@ void iter(T *address, size_t length, void (*f)(T &))
 		f(address[i]);
 }
 
-
-
 #endif
