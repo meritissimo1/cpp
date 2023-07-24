@@ -30,8 +30,6 @@ class Array
 
 			if (this != &a)
 			{
-				if (this->_arr != NULL)
-					delete [] _arr;
 				this->_arr = new T[a.len];
 				for (unsigned int i = 0; i < a.len; i++)
 					this->_arr[i] = a._arr[i];
