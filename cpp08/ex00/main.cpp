@@ -1,10 +1,5 @@
 #include "easyfind.hpp"
 
-void	displayInt(int i)
-{
-	std::cout << i << std::endl;
-}
-
 int main ( void )
 {
 	std::list<int>	list1;
