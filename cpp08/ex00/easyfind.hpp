@@ -14,23 +14,16 @@ class ValueNotFound : public std::exception
 		}
 };
 
-template <class T>
-void	easyfind(T &container, int i)
+template <typename T>
+void	easyfind(T &container, int needle)
 {
-	std::list<int>::const_iterator it = container.begin();
-	std::list<int>::const_iterator ite = container.end();
-	int pos = 1;
+	std::list<int>::iterator it;
 
-	for (; it != ite; it++)
-	{
-		if (*it == i)
-		{
-			std::cout << "Value [" << *it << "] found in " << pos << "° position" << std::endl;
-			return ;
-		}
-		pos++;
-	}
-	throw ValueNotFound();
+	it = std::find(container.begin(), container.end(), needle);
+	if (it == container.end())
+		throw ValueNotFound();
+	std::cout << "Value found - " << *it << std::endl;
+
 }
 
 #endif

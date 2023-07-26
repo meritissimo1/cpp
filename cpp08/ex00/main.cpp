@@ -1,6 +1,6 @@
 #include "easyfind.hpp"
 
-void displayInt(int i)
+void	displayInt(int i)
 {
 	std::cout << i << std::endl;
 }
@@ -13,33 +13,18 @@ int main ( void )
 	list1.push_back(37);  
 	list1.push_back(10);  
 	list1.push_back(-1);  
-	list1.push_back(100);  
-	//for_each(list1.begin(), list1.end(), displayInt); intra videos
+	list1.push_back(5);  
 	
 	try
 	{
+		::easyfind(list1, 42);
 		::easyfind(list1, 37);
+		::easyfind(list1, 10);
+		::easyfind(list1, -1);
+		::easyfind(list1, 5);
+		::easyfind(list1, 9);
 	}
 	catch (const std::exception &e)
-	{
-		std::cout << e.what();
-	}
-
-
-	std::list<char>	list2;
-	list2.push_back('a');
-	list2.push_back('b');
-	list2.push_back('i');
-	list2.push_back('a');
-	
-	char		param;
-	param = 'b';
-	
-	try
-	{
-		::easyfind(reinterpret_cast<std::list<int>(list2), static_cast<int>(param));
-	}
-	catch(const std::exception &e)
 	{
 		std::cout << e.what();
 	}
