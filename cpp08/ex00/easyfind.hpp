@@ -3,6 +3,8 @@
 
 # include <iostream>
 # include <list>
+# include <vector>
+# include <iterator>
 # include <algorithm>
 
 class ValueNotFound : public std::exception
@@ -17,7 +19,7 @@ class ValueNotFound : public std::exception
 template <typename T>
 void	easyfind(T &container, int needle)
 {
-	std::list<int>::iterator it;
+	typename T::iterator it;
 
 	it = std::find(container.begin(), container.end(), needle);
 	if (it == container.end())
