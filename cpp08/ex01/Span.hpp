@@ -19,10 +19,10 @@ class Span
 		void addNumber(); // add more than one number
 		
 
-		void shortestSpan();
-		void longestSpan();
+		void shortestSpan( void );
+		void longestSpan( void );
 
-		unsigned int getNumber();
+		unsigned int getNumber( void );
 		void setNumber(unsigned int N);
 
 	private:
