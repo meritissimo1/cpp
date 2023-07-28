@@ -22,23 +22,23 @@ Span	&Span::operator=(const Span &s)
 
 Span::~Span( void ) {}
 
+unsigned int Span::getNumber( void )
+{
+	return (this->N);
+}
+
+void	Span::setNumber(unsigned int n)
+{
+	this->N = n;
+}
+
 void	Span::addNumber(unsigned int n)
 {
 	if (this->size >= this->N)
 		throw IndexOutBounds();
 	this->containerInt.push_back(n);
-	std::cout << "Add [" << n << "] on list\n";
+//	std::cout << "Add [" << n << "] on list\n";
 	this->size++;
-}
-
-template <typename T>
-void	printc(T &container)
-{
-	std::list<int>::iterator it;
-	
-
-	for (it = container.begin(); it != container.end(); ++it)
-		std::cout << *it << " ";
 }
 
 int	Span::longestSpan( void )
@@ -52,8 +52,27 @@ int	Span::longestSpan( void )
 	return (*end - *begin);
 }
 	
+int Span::shortestSpan( void )
+{
+	std::list<int>::iterator it;
+	std::list<int>::iterator nextIt;
+	int shortest;
+	it = this->containerInt.begin();
+	nextIt = it++;
+	shortest = abs(*it - *nextIt);
+	for(; nextIt != containerInt.end(); nextIt++)
+	{
+		if (abs(*it - *nextIt) < shortest)
+			shortest = *it - *nextIt;
+		it++;
+	}
+	return (shortest);
+}
 
 
-
-
+void	Span::addSeveralNumber(std::list<int>::iterator it, std::list<int>::iterator ite, int n)
+{
+	for (; it != ite; it++)
+		addNumber(n);
+}
 

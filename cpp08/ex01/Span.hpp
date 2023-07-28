@@ -5,6 +5,7 @@
 # include <vector>
 # include <list>
 # include <algorithm>
+# include <iterator>
 
 class Span
 {
@@ -16,7 +17,7 @@ class Span
 		~Span( void );
 
 		void addNumber(unsigned int n);
-		void addNumber( void ); // add more than one number
+		void addSeveralNumber(std::list<int>::iterator it, std::list<int>::iterator ite, int n); // add more than one number
 		
 
 		int	shortestSpan( void );
@@ -24,6 +25,8 @@ class Span
 
 		unsigned int getNumber( void );
 		void setNumber(unsigned int N);
+		template <typename T>
+		T &getContainer(void);
 
 		class IndexOutBounds : public std::exception
 		{
@@ -34,14 +37,20 @@ class Span
 				}			
 		};
 
+
+		void printc( void )
+		{
+			std::list<int>::iterator it;
+			for (it = this->containerInt.begin(); it != this->containerInt.end(); ++it)
+			std::cout << *it << " ";
+		}
+
 	private:
 		unsigned int 	N; 
 		size_t			size;
 		std::list<int>	containerInt; 
 };
 
-template <typename T>
-void printc(T &container);
 
 #endif
 

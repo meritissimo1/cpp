@@ -6,7 +6,7 @@ CFLAGS	= -Wall -Wextra -Werror -g
 
 STDLIB	= -std=c++98
 
-SRC	= main.cpp Span.cpp
+SRC	= Span.cpp main.cpp
 
 OBJS	= $(SRC:.cpp=.o)
 
