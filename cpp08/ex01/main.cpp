@@ -6,6 +6,7 @@ int main(void)
 	try
 	{
 		Span sp = Span(5);
+
 		sp.addNumber(6);
 		sp.addNumber(3);
 		sp.addNumber(17);
@@ -25,8 +26,8 @@ int main(void)
 		Span span(5);
 		
 		span.addNumber(42);
-		span.addNumber(10);
 		span.addNumber(24);
+		span.addNumber(10);
 		span.addNumber(20);
 		span.addNumber(1024);
 		
@@ -34,7 +35,7 @@ int main(void)
 		std::cout << "[" << longest << "] is the longestSpan\n";  
 		
 		int shortest = span.shortestSpan();
-		std::cout << "[" << shortest << "] is the longestSpan\n";  
+		std::cout << "[" << shortest << "] is the shortestSpan\n";  
 		
 		Span span1(100001);
 		for (int i = 0; i < 100001; i++)
@@ -46,10 +47,10 @@ int main(void)
 		std::cout << "[" << longest << "] is the longestSpan\n";  
 		
 		shortest = span1.shortestSpan();
-		std::cout << "[" << shortest << "] is the longestSpan\n";  
+		std::cout << "[" << shortest << "] is the shortestSpan\n";  
 		
 		std::list<int> list;
-		Span johna(100);
+		Span johna(10);
 		for (int n = 0; n < 10; n++)
 			list.push_back(0);
 		johna.addSeveralNumber(list.begin(), list.end(), 2);
@@ -73,7 +74,7 @@ int main(void)
 	}
 	catch(const std::exception &e)
 	{
-		std::cout << e.what();		
+		std::cout << e.what();
 	}
 	return (0);
 }

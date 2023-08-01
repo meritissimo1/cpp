@@ -43,27 +43,36 @@ void	Span::addNumber(unsigned int n)
 
 int	Span::longestSpan( void )
 {
-	this->containerInt.sort();
+	std::list<int>	sorted;
+
+	sorted = this->containerInt;
+	sorted.sort();
 	std::list<int>::iterator begin;
 	std::list<int>::iterator end;
-	begin = this->containerInt.begin();
-	end = this->containerInt.end();
+	begin = sorted.begin();
+	end = sorted.end();
 	--end;
 	return (*end - *begin);
 }
 	
 int Span::shortestSpan( void )
 {
-	std::list<int>::iterator it;
-	std::list<int>::iterator nextIt;
-	int shortest;
-	it = this->containerInt.begin();
+	std::list<int>::iterator	it;
+	std::list<int>::iterator	nextIt;
+	std::list<int>				sorted;
+	int							shortest;
+	int							minor;
+
+	sorted = this->containerInt;
+	sorted.sort();
+	it = sorted.begin();
 	nextIt = it++;
 	shortest = abs(*it - *nextIt);
-	for(; nextIt != containerInt.end(); nextIt++)
+	for(; nextIt != sorted.end(); nextIt++)
 	{
-		if (abs(*it - *nextIt) < shortest)
-			shortest = *it - *nextIt;
+		minor = abs(*it - *nextIt); 
+		if (minor < shortest)
+			shortest = minor;
 		it++;
 	}
 	return (shortest);
