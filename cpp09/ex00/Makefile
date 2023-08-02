@@ -28,7 +28,7 @@ fclean:
 re: fclean all
 
 d: all
-	gdb --tui --args $(NAME) input.txt
+	gdb --tui --args $(NAME) pdf.txt
 
 v: all
 	valgrind --leak-check=full ./$(NAME)

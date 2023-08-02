@@ -163,7 +163,7 @@ void BitcoinExchange::executeInputFile(std::fstream &file)
 
 			pos = line.find('|');
 			date = line.substr(0, pos);
-			line.erase(0, pos + 2);
+			line.erase(0, pos + 1);
 			coin = std::atoll(line.c_str());
 
 			if (checkInvalidPos(pos, line))
