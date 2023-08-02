@@ -7,6 +7,8 @@
 # include <fstream>
 # include <map>
 
+typedef long long int _uint64;
+
 class BitcoinExchange
 {
 public:
@@ -18,7 +20,7 @@ public:
 
 		void createData(std::fstream &data);
 		void executeInputFile(std::fstream &data);
-		
+
 	class InvalidFile : public std::exception
 	{
 		public:
