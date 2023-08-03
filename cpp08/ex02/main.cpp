@@ -9,7 +9,7 @@ int main( void )
 		mstack.push(5);
 		mstack.push(17);
 		
-		std::cout << mstack.top()b << std::endl;
+		std::cout << mstack.top() << std::endl;
 		
 		mstack.pop();
 		
