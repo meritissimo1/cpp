@@ -21,7 +21,7 @@ void BitcoinExchange::createData(std::fstream &data)
 {
 	std::string	line;
 	std::string	date;
-	float		bitcoin;
+	double		bitcoin;
 	size_t pos;
 	while(std::getline(data, line))
 	{
@@ -30,7 +30,7 @@ void BitcoinExchange::createData(std::fstream &data)
 		line.erase(0, pos + 1);
 		bitcoin = std::atof(line.c_str());
 		line.clear();
-		this->_dataCSV.insert(std::pair<std::string, float>(date, bitcoin));
+		this->_dataCSV.insert(std::pair<std::string, double>(date, bitcoin));
 	}
 }
 
@@ -132,7 +132,7 @@ static int checkInvalidDate(std::string date)
 	return (0);
 }
 
-static int checkInvalidCoin(_uint64 coin)
+static int checkInvalidCoin(double coin)
 {
 	if (coin < 0)
 	{
@@ -147,6 +147,22 @@ static int checkInvalidCoin(_uint64 coin)
 	return (0);
 }
 
+
+void BitcoinExchange::closestValue(std::map<std::string, double>& dataCSV, const std::string& date)
+{
+	_it = dataCSV.upper_bound(date);
+
+	if (_it != dataCSV.begin() || _it->first != date)
+		--_it;
+}
+
+void BitcoinExchange::execLine(std::string date, double coin)
+{
+	closestValue(_dataCSV, date);
+	std::cout << date << " => " << coin << " = " << _it->second * coin << std::endl;
+}
+
+
 void BitcoinExchange::executeInputFile(std::fstream &file)
 {
 	std::string line;
@@ -158,13 +174,13 @@ void BitcoinExchange::executeInputFile(std::fstream &file)
 		else
 		{
 			std::string	date;
-			_uint64		coin;
+			double		coin;
 			size_t		pos;
 
 			pos = line.find('|');
 			date = line.substr(0, pos);
 			line.erase(0, pos + 1);
-			coin = std::atoll(line.c_str());
+			coin = std::atof(line.c_str());
 
 			if (checkInvalidPos(pos, line))
 				continue;
@@ -173,11 +189,8 @@ void BitcoinExchange::executeInputFile(std::fstream &file)
 			else if (checkInvalidCoin(coin))
 				continue;
 			else
-				std::cout << date << coin << std::endl;
-			
+				execLine(date, coin);
 		}
-		
-			
 	}
 }
 
