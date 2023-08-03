@@ -70,7 +70,7 @@ int Span::shortestSpan( void )
 	shortest = abs(*it - *nextIt);
 	for(; nextIt != sorted.end(); nextIt++)
 	{
-		minor = abs(*it - *nextIt); 
+		minor = abs(*it - *nextIt);
 		if (minor < shortest)
 			shortest = minor;
 		it++;

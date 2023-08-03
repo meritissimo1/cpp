@@ -46,9 +46,9 @@ class Span
 		}
 
 	private:
-		unsigned int 	N; 
+		unsigned int	N;
 		size_t			size;
-		std::list<int>	containerInt; 
+		std::list<int>	containerInt;
 };
 
 

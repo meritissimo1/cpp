@@ -54,6 +54,7 @@ int main(void)
 		for (int n = 0; n < 10; n++)
 			list.push_back(0);
 		johna.addSeveralNumber(list.begin(), list.end(), 2);
+		std::cout << std::endl;
 		johna.printc();
 		std::cout << std::endl;
 
@@ -62,7 +63,7 @@ int main(void)
 	{
 		std::cout << e.what();
 	}
-
+	std::cout << std::endl;
 	try
 	{
 		Span andrey(3);
