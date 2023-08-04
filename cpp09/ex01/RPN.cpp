@@ -49,7 +49,7 @@ void Rpn::multiply( void )
 	x = _stack.top();
 	_stack.pop();
 	y = _stack.top();
-
+	_stack.pop();
 	std::cout << x << " * " << y << std::endl; 
 }
 
