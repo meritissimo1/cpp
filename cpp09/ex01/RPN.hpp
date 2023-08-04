@@ -4,6 +4,7 @@
 # include <iostream>
 # include <string>
 # include <stack>
+# include <cctype>
 # include <iterator>
 # include <algorithm>
 
@@ -17,6 +18,15 @@ class Rpn
 		~Rpn( void );
 	
 		int calcule( void );
+
+	class InvalidExpression : public std::exception
+	{
+		public:
+			const char *what() const throw()
+			{
+				return ("Error: Invalid Expression\n");
+			}
+	};
 
 	private:
 		std::string _expression;
