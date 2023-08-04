@@ -31,6 +31,6 @@ d: all
 	gdb --tui --args $(NAME) pdf.txt
 
 v: all
-	valgrind --leak-check=full ./$(NAME)
+	valgrind --leak-check=full --track-fds=yes ./$(NAME) pdf.txt
 
 .PHONY: all clean fclean re

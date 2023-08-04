@@ -26,7 +26,7 @@ public:
 		public:
 		const char *what() const throw()
 		{
-			return ("Invalid file\n");
+			return ("Error: could not open file.\n");
 		}
 	};
 
