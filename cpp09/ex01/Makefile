@@ -6,7 +6,7 @@ CFLAGS	= -Wall -Wextra -Werror -g
 
 STDLIB	= -std=c++98
 
-SRC	= main.cpp BitcoinExchange.cpp
+SRC	= main.cpp RPN.cpp
 
 OBJS	= $(SRC:.cpp=.o)
 
