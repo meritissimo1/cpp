@@ -18,6 +18,14 @@ class Rpn
 		~Rpn( void );
 	
 		int calcule( void );
+		void DoExpression(char arithmetic);
+		void insertOnStack(char number);
+		
+		void multiply( void );
+		void divide( void );
+		void sum( void );
+		void subtract( void );
+
 
 	class InvalidExpression : public std::exception
 	{
@@ -29,6 +37,7 @@ class Rpn
 	};
 
 	private:
+		int _result;
 		std::string _expression;
 		std::stack<int> _stack;
 };
