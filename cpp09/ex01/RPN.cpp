@@ -34,7 +34,7 @@ static int isoperator(int c)
 		return (0);
 }
 
-/*
+
 static int checkInvalidStack(std::stack<int> stack)
 {
 	if (stack.empty())
@@ -46,25 +46,42 @@ void Rpn::multiply( void )
 {
 	int x;
 	int y;
-	x = _stack.pop();
-	y = _stack.pop();
+	x = _stack.top();
+	_stack.pop();
+	y = _stack.top();
+
 	std::cout << x << " * " << y << std::endl; 
+}
+
+void Rpn::divide( void )
+{
+	std::cout << "divide em obras\n";
+}
+
+void Rpn::sum( void )
+{
+	std::cout << "sum em obras\n";
+}
+
+void Rpn::subtract( void )
+{
+	std::cout << "sub em obras\n";
 }
 
 void	Rpn::DoExpression(char arithmetic)
 {
 	if (checkInvalidStack(_stack))
-		throw InvalidInput();	
-	else if (arithmetic == "*")
+		throw InvalidExpression();	
+	else if (arithmetic == '*')
 		multiply();
-	else if (arithmetic == "/")
+	else if (arithmetic == '/')
 		divide();
-	else if (arithmetic == "+")
+	else if (arithmetic == '+')
 		sum();
-	else if (arithmetic == "-")
+	else if (arithmetic == '-')
 		subtract();
 }
-*/
+
 
 void Rpn::insertOnStack(char number)
 {
@@ -83,8 +100,8 @@ int Rpn::calcule( void )
 			continue ;
 		else if (!std::isdigit(_expression[i]) && !isoperator(_expression[i]))
 			throw InvalidExpression();
-//		else if (isoperator(_expression[i]))
-//			DoExpression(_expression[i]);
+		else if (isoperator(_expression[i]))
+			DoExpression(_expression[i]);
 		else
 			insertOnStack(_expression[i]);
 	}
