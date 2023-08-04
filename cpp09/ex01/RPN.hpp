@@ -36,8 +36,18 @@ class Rpn
 			}
 	};
 
+	class InvalidExpressionZero : public std::exception
+	{
+		public:
+			const char *what() const throw()
+			{
+				return ("Error: Invalid Expression => cannot divide 0 by 0\n");
+			}
+	};
+
 	private:
-		int _result;
+		int _size;
+		int _op;
 		std::string _expression;
 		std::stack<int> _stack;
 };

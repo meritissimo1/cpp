@@ -1,6 +1,6 @@
 #include "RPN.hpp"
 
-	Rpn::Rpn( void ) : _result(0) {}
+	Rpn::Rpn( void ) : _size(0), _op(0) {}
 
 Rpn::Rpn(const Rpn &r)
 {
@@ -13,7 +13,8 @@ Rpn &Rpn::operator=(const Rpn &r)
 	{
 		this->_stack = r._stack;
 		this->_expression = r._expression;
-		this->_result = r._result;
+		this->_op = r._op;
+		this->_size = r._size;
 	}
 	return (*this);
 }
@@ -23,7 +24,8 @@ Rpn::~Rpn( void ) {}
 Rpn::Rpn(std::string expression)
 {
 	_expression = expression;
-	_result = 0;
+	_op = 0;
+	_size = 0;
 }
 
 static int isoperator(int c)
@@ -48,28 +50,63 @@ void Rpn::multiply( void )
 	int y;
 	x = _stack.top();
 	_stack.pop();
+	if (checkInvalidStack(_stack))
+		throw InvalidExpression();
 	y = _stack.top();
 	_stack.pop();
-	std::cout << x << " * " << y << std::endl; 
+	_stack.push(x * y);
+	_size -= 1;
 }
 
 void Rpn::divide( void )
 {
-	std::cout << "divide em obras\n";
+	int x;
+	int y;
+	x = _stack.top();
+	_stack.pop();
+	if (checkInvalidStack(_stack))
+		throw InvalidExpression();
+	y = _stack.top();
+	_stack.pop();
+	if (x == 0 && y == 0)
+		throw InvalidExpressionZero();
+	_stack.push(y / x);
+	_size -= 1;
 }
 
 void Rpn::sum( void )
 {
-	std::cout << "sum em obras\n";
+	int x;
+	int y;
+
+	x = _stack.top();
+	_stack.pop();
+	if (checkInvalidStack(_stack))
+		throw InvalidExpression();
+	y = _stack.top();
+	_stack.pop();
+	_stack.push(x + y);
+	_size -= 1;
 }
 
 void Rpn::subtract( void )
 {
-	std::cout << "sub em obras\n";
+	int x;
+	int y;
+
+	x = _stack.top();
+	_stack.pop();
+	if (checkInvalidStack(_stack))
+		throw InvalidExpression();
+	y = _stack.top();
+	_stack.pop();
+	_stack.push(y - x);
+	_size -= 1;
 }
 
 void	Rpn::DoExpression(char arithmetic)
 {
+	_op += 1;
 	if (checkInvalidStack(_stack))
 		throw InvalidExpression();	
 	else if (arithmetic == '*')
@@ -87,11 +124,13 @@ void Rpn::insertOnStack(char number)
 {
 	int n = number - '0';
 	_stack.push(n);
+	_size += 1;
 }
 
 int Rpn::calcule( void )
 {
 	int	i;
+	int aux;
 
 	i = -1;
 	while(_expression[++i])
@@ -105,11 +144,16 @@ int Rpn::calcule( void )
 		else
 			insertOnStack(_expression[i]);
 	}
-	while(!_stack.empty())
+	if (!_op)
+		throw InvalidExpression();
+	else if(_op % 2 == 0)
+		return (_stack.top());
+	else
 	{
-		std::cout << _stack.top() << std::endl;
-		_stack.pop();
+		aux = -1;
+		while (++aux < _size -1)
+			_stack.pop();
+		return (_stack.top());
 	}
-	return (_result);
 }
 

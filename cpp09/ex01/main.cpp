@@ -14,7 +14,7 @@ int main(int ac, char **av)
 	
 		Rpn rpn(av[1]);
 		result = rpn.calcule();
-		std::cout << result << std::endl;
+		std::cout << "R: " << result << std::endl;
 	}
 	catch (const std::exception &e)
 	{
