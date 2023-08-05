@@ -65,7 +65,6 @@ int	PmergeMe::Duplicate( void )
 
 void PmergeMe::createGroup( void )
 {
-	std::vector<std::pair<int, int> > pairVec;
 	std::vector<int>::iterator it;
 	std::vector<int>::iterator ite;
 	std::vector<int>::iterator nextit;
@@ -77,21 +76,26 @@ void PmergeMe::createGroup( void )
 	 while (nextit < ite)
 	{
 		if (*nextit < *it)
-		{	pairVec.push_back(std::make_pair(*nextit, *it));
-			std::cout << *nextit << " < " << *it << std::endl;
-		}else{
-			pairVec.push_back(std::make_pair(*it, *nextit));
-			std::cout << *nextit << " > " << *it << std::endl;
-		}
+			_pairVec.push_back(std::make_pair(*nextit, *it));
+		else
+			_pairVec.push_back(std::make_pair(*it, *nextit));
 		nextit += 2;
 		it += 2;
 	}
 	 if (it != ite)
-		 pairVec.push_back(std::make_pair(0, *it));
-	 for (std::vector<std::pair<int, int> >::iterator it = pairVec.begin(); it != pairVec.end(); ++it) {
-        std::cout << "(" << it->first << ", " << it->second << ") ";
-    }
-	 std::cout << std::endl;
+		 _pairVec.push_back(std::make_pair(0, *it));
+}
+
+void PmergeMe::SortLargestPair( void )
+{
+	std::vector<std::pair<int, int> >::iterator it;
+	std::vector<std::pair<int, int> >::iterator ite;
+
+	it = _pairVec.begin();
+	ite = _pairVec.end();
+
+	for (; it != ite; it++)
+		std::cout << "[" << it->first << "-" << it->second << "]" << std::endl;
 }
 
 void PmergeMe::Sort( void )
@@ -110,5 +114,6 @@ void PmergeMe::Sort( void )
 	if (Duplicate())
 		throw InvalidDuplicate();
 	createGroup();
+	SortLargestPair();
 }
 

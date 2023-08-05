@@ -20,6 +20,7 @@ class PmergeMe
 		void InsertOnVec(std::string n);
 		int Duplicate( void );
 		void createGroup( void );
+		void SortLargestPair( void );
 
 	class InvalidInput : public std::exception
 	{
@@ -42,6 +43,7 @@ class PmergeMe
 		int _size;
 		char **_numbers;
 		std::vector<int>	_listVec;
+		std::vector<std::pair<int, int> > _pairVec;
 };
 
 
