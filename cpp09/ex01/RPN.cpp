@@ -68,7 +68,7 @@ void Rpn::divide( void )
 		throw InvalidExpression();
 	y = _stack.top();
 	_stack.pop();
-	if (x == 0 && y == 0)
+	if (x == 0)
 		throw InvalidExpressionZero();
 	_stack.push(y / x);
 	_size -= 1;
@@ -130,7 +130,6 @@ void Rpn::insertOnStack(char number)
 int Rpn::calcule( void )
 {
 	int	i;
-	int aux;
 
 	i = -1;
 	while(_expression[++i])
@@ -146,14 +145,9 @@ int Rpn::calcule( void )
 	}
 	if (!_op)
 		throw InvalidExpression();
-	else if(_op % 2 == 0)
-		return (_stack.top());
+	else if (_expression[i - 1] - '0' == _stack.top())
+		throw InvalidExpression();
 	else
-	{
-		aux = -1;
-		while (++aux < _size -1)
-			_stack.pop();
 		return (_stack.top());
-	}
 }
 

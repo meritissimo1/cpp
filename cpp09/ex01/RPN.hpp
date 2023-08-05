@@ -41,7 +41,7 @@ class Rpn
 		public:
 			const char *what() const throw()
 			{
-				return ("Error: Invalid Expression => cannot divide 0 by 0\n");
+				return ("Error: Invalid Expression => cannot divide by 0\n");
 			}
 	};
 
