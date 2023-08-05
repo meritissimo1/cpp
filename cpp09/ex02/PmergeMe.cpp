@@ -63,6 +63,37 @@ int	PmergeMe::Duplicate( void )
 	return (0);
 }
 
+void PmergeMe::createGroup( void )
+{
+	std::vector<std::pair<int, int> > pairVec;
+	std::vector<int>::iterator it;
+	std::vector<int>::iterator ite;
+	std::vector<int>::iterator nextit;
+
+	it = _listVec.begin();
+	ite = _listVec.end();
+	nextit = it + 1;
+
+	 while (nextit < ite)
+	{
+		if (*nextit < *it)
+		{	pairVec.push_back(std::make_pair(*nextit, *it));
+			std::cout << *nextit << " < " << *it << std::endl;
+		}else{
+			pairVec.push_back(std::make_pair(*it, *nextit));
+			std::cout << *nextit << " > " << *it << std::endl;
+		}
+		nextit += 2;
+		it += 2;
+	}
+	 if (it != ite)
+		 pairVec.push_back(std::make_pair(0, *it));
+	 for (std::vector<std::pair<int, int> >::iterator it = pairVec.begin(); it != pairVec.end(); ++it) {
+        std::cout << "(" << it->first << ", " << it->second << ") ";
+    }
+	 std::cout << std::endl;
+}
+
 void PmergeMe::Sort( void )
 {
 	int i;
@@ -78,6 +109,6 @@ void PmergeMe::Sort( void )
 	}
 	if (Duplicate())
 		throw InvalidDuplicate();
-
+	createGroup();
 }
 

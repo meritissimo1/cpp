@@ -19,6 +19,7 @@ class PmergeMe
 		void Sort( void );
 		void InsertOnVec(std::string n);
 		int Duplicate( void );
+		void createGroup( void );
 
 	class InvalidInput : public std::exception
 	{
