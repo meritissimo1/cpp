@@ -18,6 +18,7 @@ class PmergeMe
 	
 		void Sort( void );
 		void InsertOnVec(std::string n);
+		int Duplicate( void );
 
 	class InvalidInput : public std::exception
 	{
@@ -25,6 +26,14 @@ class PmergeMe
 			const char *what() const throw ()
 			{
 				return ("Error: Invalid Input\n");
+			}
+	};
+	class InvalidDuplicate : public std::exception
+	{
+		public:
+			const char *what() const throw ()
+			{
+				return ("Error: Duplicate values\n");
 			}
 	};
 

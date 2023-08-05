@@ -24,7 +24,7 @@ void PmergeMe::InsertOnVec(std::string n)
 	int num;
 
 	num = std::atoi(n.c_str());
-	std::cout << num + num << std::endl;
+	_listVec.push_back(num);
 }
 
 static int isNumber(std::string number)
@@ -43,6 +43,26 @@ static int isNumber(std::string number)
 	return (1);
 }
 
+
+int	PmergeMe::Duplicate( void )
+{
+	std::vector<int>::iterator it;	
+	std::vector<int>::iterator nextit;	
+	std::vector<int>::iterator ite;
+
+	it = _listVec.begin();
+	ite = _listVec.end();
+	nextit = it + 1;
+	for (; it != ite; it++)
+	{
+		nextit = it + 1;
+		for (; nextit != ite; nextit++)
+			if (*it == *nextit)
+				return (1);
+	}
+	return (0);
+}
+
 void PmergeMe::Sort( void )
 {
 	int i;
@@ -56,5 +76,8 @@ void PmergeMe::Sort( void )
 			InsertOnVec(_numbers[i]);
 
 	}
+	if (Duplicate())
+		throw InvalidDuplicate();
+
 }
 
