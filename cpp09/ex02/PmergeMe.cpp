@@ -79,9 +79,9 @@ void PmergeMe::createGroup( void )
 	 while (nextit < ite)
 	{
 		if (*nextit < *it)
-			_pairVec.push_back(std::make_pair(*nextit, *it));
-		else
 			_pairVec.push_back(std::make_pair(*it, *nextit));
+		else
+			_pairVec.push_back(std::make_pair(*nextit, *it));
 		nextit += 2;
 		it += 2;
 	}
