@@ -20,8 +20,6 @@ class PmergeMe
 		void InsertOnVec(std::string n, int index);
 		int Duplicate( void );
 		void createGroup( void );
-		void mergeSort(size_t left, size_t right);
-		void merge(size_t left, size_t mid, size_t right);
 		void SortLargestPair( void );
 
 	class InvalidInput : public std::exception
