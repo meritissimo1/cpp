@@ -21,6 +21,7 @@ class PmergeMe
 		int Duplicate( void );
 		void createGroup( void );
 		void SortLargestPair( void );
+		void createMainPend( void );
 
 	class InvalidInput : public std::exception
 	{
@@ -40,11 +41,13 @@ class PmergeMe
 	};
 
 	private:
-		int _lastN;
-		int _size;
-		char **_numbers;
-		std::vector<int>	_listVec;
-		std::vector<std::pair<int, int> > _pairVec;
+		int									_lastN;
+		int									_size;
+		char								**_numbers;
+		std::vector<int>					_listVec;
+		std::vector<std::pair<int, int> >	_pairVec;
+		std::vector<int>					_vecMain;
+		std::vector<int>					_vecPend;
 };
 
 
