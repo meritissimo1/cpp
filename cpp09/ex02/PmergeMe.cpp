@@ -196,10 +196,7 @@ int PmergeMe::binarySearch(int target, int begin, int end)
 		else
 			end = mid - 1;
 	}
-	if (target > _vecMain.at(mid))
-		return (mid + 1);
-	else
-		return (mid);
+	return (mid);
 }
 
 void PmergeMe::InsertSorted( void )
