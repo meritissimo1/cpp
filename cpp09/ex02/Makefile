@@ -28,7 +28,7 @@ fclean:
 re: fclean all
 
 d: all
-	gdb --tui --args $(NAME) 7 8 27 100 11 46 2 53 0 
+	gdb --tui --args $(NAME) 7 102 27 100 11 10
 
 v: all
 	valgrind --leak-check=full ./$(NAME)
