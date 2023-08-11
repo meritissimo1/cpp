@@ -12,6 +12,8 @@ int main(int ac, char **av)
 	{
 		PmergeMe isa(ac, av);
 		isa.Sort();
+		PmergeMe::Deque jujuba(ac, av);
+		jujuba.Sort();
 	}
 	catch (const std::exception &e)
 	{
