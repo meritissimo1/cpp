@@ -197,11 +197,13 @@ void BitcoinExchange::executeInputFile(std::fstream &file)
 
 BitcoinExchange::BitcoinExchange(std::string file)
 {
-	std::fstream data("data.csv");
+	std::fstream data("cpp_09/data.csv");
 	std::fstream inputFile(file.c_str());
 
 	if (data.fail() || inputFile.fail())
 		throw InvalidFile();
 	createData(data);
 	executeInputFile(inputFile);
+	data.close();
+	inputFile.close();
 }

@@ -28,7 +28,7 @@ fclean:
 re: fclean all
 
 d: all
-	gdb --tui --args $(NAME) pdf.txt
+	gdb --tui --args $(NAME) cpp_09/data.csv
 
 v: all
 	valgrind --leak-check=full --track-fds=yes ./$(NAME) pdf.txt
