@@ -23,11 +23,10 @@ class PmergeMe
 		void InsertOnVec(std::string n);
 		int Duplicate( void );
 		void createGroup( void );
-		void SortLargestPair( void );
 		void InsertionSort(std::vector<std::pair<int, int> > &_pairVec, size_t size);
 		void createMainPend( void );
 		void InsertSorted( void );
-		void generatePositions( void );
+		void generateInsertSequence( void );
 		void JacobSequence( void );
 		int jacobsthal(int n);
 		int binarySearch(int target, int begin, int end);
@@ -91,11 +90,10 @@ class PmergeMe
 			void InsertOnVec(std::string n);
 			int Duplicate( void );
 			void createGroup( void );
-			void SortLargestPair( void );
 			void InsertionSort(std::deque<std::pair<int, int> > &pairDeque, size_t size);
 			void createMainPend( void );
 			void InsertSorted( void );
-			void generatePositions( void );
+			void generateInsertSequence( void );
 			void JacobSequence( void );
 			int jacobsthal(int n);
 			int binarySearch(int target, int begin, int end);

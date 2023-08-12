@@ -155,7 +155,7 @@ void PmergeMe::JacobSequence( void )
 	}
 }
 
-void PmergeMe::generatePositions( void )
+void PmergeMe::generateInsertSequence( void )
 {
 	size_t lastjacobN;
 	size_t posNotJacob;
@@ -238,7 +238,7 @@ void PmergeMe::printInfos(double time)
 		std::cout << _vecMain[j] << " ";
 	std::cout << std::endl;
 	std::cout << "Time to process a range of " << _listVec.size() << " elements with std::vector: " <<
-		std::fixed << std::setprecision(6) << time * 1000000 << " us" << std::endl;
+		std::fixed << std::setprecision(4) << time * 1000 << " ms" << std::endl;
 }
 
 void PmergeMe::Sort( void )
@@ -246,7 +246,7 @@ void PmergeMe::Sort( void )
 	int i;
 
 	i = 1;
-	clock_t startTime;
+	std::clock_t startTime;
 	for (; i < _size; i++)
 	{
 		if (!isNumber(_numbers[i]))
@@ -254,7 +254,7 @@ void PmergeMe::Sort( void )
 		else
 		{
 			InsertOnVec(_numbers[i]);
-			startTime = clock();
+			startTime = std::clock();
 		}	
 	}
 	if (Duplicate())
@@ -267,49 +267,11 @@ void PmergeMe::Sort( void )
 	InsertionSort(_pairVec, _pairVec.size());
 	createMainPend();
 	JacobSequence();
-	generatePositions();
+	generateInsertSequence();
 	InsertSorted();
-	clock_t endTime = clock();
+	std::clock_t endTime = std::clock();
 	double time = static_cast<double>(endTime - startTime) / CLOCKS_PER_SEC;
 	printInfos(time);
-	//SortLargestPair(); // servindo de print
-}
-
-void PmergeMe::SortLargestPair( void )
-{
-	std::vector<std::pair<int, int> >::iterator it;
-	std::vector<std::pair<int, int> >::iterator ite;
-
-	it = _pairVec.begin();
-	ite = _pairVec.end();
-
-	std::cout << "Pair vec\n";
-	for (; it != ite; it++)
-		std::cout << "[" << it->first << "-" << it->second << "]" << std::endl;
-	std::cout << "\nMain vec\n";
-	std::vector<int>::iterator begin;
-	std::vector<int>::iterator end;
-	
-	
-	begin = _vecMain.begin();
-	end = _vecMain.end();
-	--end;
-	for (; begin <= end; begin++)
-		std::cout << "[" << *begin << "] ";
-	
-	
-	begin = _vecPend.begin();
-	end = _vecPend.end();
-	--end;
-	std::cout << "\n\nPend vec\n";
-	for (; begin <= end; begin++)
-		std::cout << "[" << *begin << "] ";
-	std::cout << std::endl;
-
-
-	for (unsigned int i = 0; i < _vecMain.size(); i++)
-		std::cout << this->_vecMain.at(i) << " ";
-	std::cout << std::endl;
 }
 
 PmergeMe::Deque::Deque( void ) {}
@@ -443,7 +405,7 @@ void PmergeMe::Deque::JacobSequence( void )
 	}
 }
 
-void PmergeMe::Deque::generatePositions( void )
+void PmergeMe::Deque::generateInsertSequence( void )
 {
 	size_t lastjacobN;
 	size_t posNotJacob;
@@ -526,7 +488,7 @@ void PmergeMe::Deque::printInfos(double time)
 //		std::cout << _dequeMain[j] << " ";
 //	std::cout << std::endl;
 	std::cout << "Time to process a range of " << _listDeque.size() << " elements with std::deque:  " <<
-		std::fixed << std::setprecision(6) << time * 1000000 << " us" << std::endl;
+		std::fixed << std::setprecision(4) << time * 1000 << " ms" << std::endl;
 }
 
 void PmergeMe::Deque::Sort( void )
@@ -555,50 +517,11 @@ void PmergeMe::Deque::Sort( void )
 	InsertionSort(_pairDeque, _pairDeque.size());
 	createMainPend();
 	JacobSequence();
-	generatePositions();
+	generateInsertSequence();
 	InsertSorted();
 	clock_t endTime = clock();
 	double time = static_cast<double>(endTime - startTime) / CLOCKS_PER_SEC;
 	printInfos(time);
-	//SortLargestPair(); // servindo de print
 }
 
-
-
-void PmergeMe::Deque::SortLargestPair( void )
-{
-	std::deque<std::pair<int, int> >::iterator it;
-	std::deque<std::pair<int, int> >::iterator ite;
-
-	it = _pairDeque.begin();
-	ite = _pairDeque.end();
-
-	std::cout << "Pair deque\n";
-	for (; it != ite; it++)
-		std::cout << "[" << it->first << "-" << it->second << "]" << std::endl;
-	std::cout << "\nMain deque\n";
-	std::deque<int>::iterator begin;
-	std::deque<int>::iterator end;
-	
-	
-	begin = _dequeMain.begin();
-	end = _dequeMain.end();
-	--end;
-	for (; begin <= end; begin++)
-		std::cout << "[" << *begin << "] ";
-	
-	
-	begin = _dequePend.begin();
-	end = _dequePend.end();
-	--end;
-	std::cout << "\n\nPend deque\n";
-	for (; begin <= end; begin++)
-		std::cout << "[" << *begin << "] ";
-	std::cout << std::endl;
-
-
-	for (unsigned int i = 0; i < _dequeMain.size(); i++)
-		std::cout << this->_dequeMain.at(i) << " ";
-	std::cout << std::endl;
-}
 
