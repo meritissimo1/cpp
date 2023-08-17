@@ -19,7 +19,7 @@ PmergeMe::~PmergeMe( void ) {}
 PmergeMe::PmergeMe(int size, char **numbers) : _size(size), _numbers(numbers) {}
 
 
-void PmergeMe::InsertOnVec(std::string n)
+void PmergeMe::insertOnVec(std::string n)
 {
 	int num;
 	
@@ -57,7 +57,7 @@ bool isSorted(T &_list)
 	return (true);
 }
 
-int	PmergeMe::Duplicate( void )
+int	PmergeMe::duplicate( void )
 {
 	std::vector<int>::iterator it;
 	std::vector<int>::iterator nextit;
@@ -100,11 +100,11 @@ void PmergeMe::createGroup( void )
 	}
 }
 
-void PmergeMe::InsertionSort(std::vector<std::pair<int, int> > &pairVec, size_t size)
+void PmergeMe::insertionSort(std::vector<std::pair<int, int> > &pairVec, size_t size)
 {
 	if (size <= 1)
 		return;
-	InsertionSort(pairVec, size - 1);
+	insertionSort(pairVec, size - 1);
 	size_t nextPair = size - 1;
 	std::pair<int, int> auxPair = pairVec[nextPair];
 	int j = static_cast<int>(nextPair) - 1;
@@ -141,7 +141,7 @@ int PmergeMe::jacobsthal(int n)
 	return (jacobsthal(n - 1) + 2 * jacobsthal(n - 2));
 }
 
-void PmergeMe::JacobSequence( void )
+void PmergeMe::jacobSequence( void )
 {
 	int size;
 	int jacobI;
@@ -202,7 +202,7 @@ int PmergeMe::binarySearch(int target, int begin, int end)
 		return (mid);
 }
 
-void PmergeMe::InsertSorted( void )
+void PmergeMe::insertSorted( void )
 {
 	std::vector<int>::iterator it;
 	int target;
@@ -241,7 +241,7 @@ void PmergeMe::printInfos(double time)
 		std::fixed << std::setprecision(4) << time * 1000 << " ms" << std::endl;
 }
 
-void PmergeMe::Sort( void )
+void PmergeMe::sort( void )
 {
 	int i;
 
@@ -253,22 +253,22 @@ void PmergeMe::Sort( void )
 			throw InvalidInput();
 		else
 		{
-			InsertOnVec(_numbers[i]);
+			insertOnVec(_numbers[i]);
 			startTime = std::clock();
 		}	
 	}
-	if (Duplicate())
+	if (duplicate())
 		throw InvalidDuplicate();
 	else if (_listVec.size() == 1)
 		throw OnlyOneParam();
 	else if(isSorted(_listVec))
 		throw IsSorted();
 	createGroup();
-	InsertionSort(_pairVec, _pairVec.size());
+	insertionSort(_pairVec, _pairVec.size());
 	createMainPend();
-	JacobSequence();
+	jacobSequence();
 	generateInsertSequence();
-	InsertSorted();
+	insertSorted();
 	std::clock_t endTime = std::clock();
 	double time = static_cast<double>(endTime - startTime) / CLOCKS_PER_SEC;
 	printInfos(time);

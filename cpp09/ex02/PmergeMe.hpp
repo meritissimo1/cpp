@@ -19,15 +19,15 @@ class PmergeMe
 		PmergeMe &operator=(const PmergeMe &pm);
 		~PmergeMe( void );
 	
-		void Sort( void );
-		void InsertOnVec(std::string n);
-		int Duplicate( void );
+		void sort( void );
+		void insertOnVec(std::string n);
+		int duplicate( void );
 		void createGroup( void );
-		void InsertionSort(std::vector<std::pair<int, int> > &_pairVec, size_t size);
+		void insertionSort(std::vector<std::pair<int, int> > &_pairVec, size_t size);
 		void createMainPend( void );
-		void InsertSorted( void );
+		void insertSorted( void );
 		void generateInsertSequence( void );
-		void JacobSequence( void );
+		void jacobSequence( void );
 		int jacobsthal(int n);
 		int binarySearch(int target, int begin, int end);
 		void printInfos(double time);

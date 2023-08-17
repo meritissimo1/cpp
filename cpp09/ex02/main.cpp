@@ -11,7 +11,7 @@ int main(int ac, char **av)
 	try
 	{
 		PmergeMe isa(ac, av);
-		isa.Sort();
+		isa.sort();
 		PmergeMe::Deque jujuba(ac, av);
 		jujuba.Sort();
 	}
